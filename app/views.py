@@ -9,9 +9,6 @@ import telnetlib
 import sqlite3
 
 app.secret_key = 's3cr3t'
-conn = sqlite3.connect('pieface.db')
-
-print("DB worked")
 
 
 def gethdmi():
