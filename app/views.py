@@ -1,6 +1,7 @@
 from flask import render_template, request, url_for, redirect, jsonify
 from app import app
 from app.forms import ImageSetForm
+import mysql.connector
 import os
 import subprocess
 import socket
@@ -106,6 +107,8 @@ def index():
        out7 = request.form['out7']
        out8 = request.form['out8']'''
 
+
+    #Coll
     if request.method == 'POST':
 
         print("Request Form Fields= " + str(request.form) + "\n")
