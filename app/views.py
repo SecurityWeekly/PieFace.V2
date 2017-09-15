@@ -1,11 +1,14 @@
 from flask import render_template, request, url_for, redirect, jsonify
 from app import app
 from app.forms import ImageSetForm
-import mysql.connector
 import os
 import subprocess
 import socket
 import telnetlib
+import MySQLdb
+
+
+
 
 import sqlite3
 
