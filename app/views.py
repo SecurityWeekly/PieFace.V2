@@ -10,7 +10,6 @@ import pymysql.cursors
 
 
 
-
 import sqlite3
 
 app.secret_key = 's3cr3t'
@@ -116,11 +115,33 @@ def index():
     if request.method == 'POST':
 
 
-        conn = pymysql.connect(host='localhost', user='root', password='Password1', db='PieFace', charset='utf8mb4',
-                               cursorclass=pymysql.cursors.DictCursor)
-        a = conn.cursor()
+
+
+        # Connect to the database
+        connection = pymysql.connect(host='localhost',
+                                     user='root',
+                                     password='Password1',
+                                     db='PieFace',
+                                     charset='utf8mb4',
+                                     cursorclass=pymysql.cursors.DictCursor)
+
+
+
+
+
+        cursor = connection.cursor()
         sql = "SELECT * FROM PieFace.new_table;"
-        a.execute(sql)
+        cursor.execute(sql)
+
+        result = cursor.fetchone()
+        print ("printing result...")
+        print(result)
+        selectedSet = str(result)
+
+
+
+
+
 
 
         print("Request Form Fields= " + str(request.form) + "\n")
