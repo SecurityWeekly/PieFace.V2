@@ -5,7 +5,8 @@ import os
 import subprocess
 import socket
 import telnetlib
-import MySQLdb
+import pymysql
+import pymysql.cursors
 
 
 
@@ -113,6 +114,14 @@ def index():
 
     #Coll
     if request.method == 'POST':
+
+
+        conn = pymysql.connect(host='localhost', user='root', password='Password1', db='PieFace', charset='utf8mb4',
+                               cursorclass=pymysql.cursors.DictCursor)
+        a = conn.cursor()
+        sql = "SELECT * FROM PieFace.new_table;"
+        a.execute(sql)
+
 
         print("Request Form Fields= " + str(request.form) + "\n")
         # print("Active = " + str(request.form['active']) + "\n")
