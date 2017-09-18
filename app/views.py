@@ -66,6 +66,8 @@ def gethdmi():
     return file_contents
     f.close()'''
 
+'''TEST'''
+
 
 # @app.route('/displayoutputstatus')
 # def displayoutputstatus():
