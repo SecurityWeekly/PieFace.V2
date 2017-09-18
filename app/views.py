@@ -8,8 +8,6 @@ import telnetlib
 import pymysql
 import pymysql.cursors
 
-
-
 import sqlite3
 
 app.secret_key = 's3cr3t'
@@ -110,12 +108,8 @@ def index():
        out7 = request.form['out7']
        out8 = request.form['out8']'''
 
-
-    #Coll
+    # Coll
     if request.method == 'POST':
-
-
-
 
         # Connect to the database
         connection = pymysql.connect(host='localhost',
@@ -125,24 +119,13 @@ def index():
                                      charset='utf8mb4',
                                      cursorclass=pymysql.cursors.DictCursor)
 
-
-
-
-
         cursor = connection.cursor()
         sql = "SELECT * FROM PieFace.new_table;"
         cursor.execute(sql)
 
         result = cursor.fetchone()
-        print ("printing result...")
-        print(result)
-        selectedSet = str(result)
 
-
-
-
-
-
+        selectedSet = result["test"]
 
         print("Request Form Fields= " + str(request.form) + "\n")
         # print("Active = " + str(request.form['active']) + "\n")
