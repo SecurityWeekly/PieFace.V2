@@ -60,11 +60,13 @@ def gethdmi():
     return data
 
 
-def displayoutputstatus():
-    f = open('/home/wpaquin/Desktop/pieface/app/display.output', 'r')
+'''def displayoutputstatus():
+    f = open('~/pieface/app/display.output', 'r')
     file_contents = f.read()
     return file_contents
-    f.close()
+    f.close()'''
+
+'''TEST'''
 
 
 # @app.route('/displayoutputstatus')
