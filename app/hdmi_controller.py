@@ -5,14 +5,14 @@ class hdmi_controller:
     # define class variables
     hdmi_status = ""
 
-    out1 = ""
-    out2 = ""
-    out3 = ""
-    out4 = ""
-    out5 = ""
-    out6 = ""
-    out7 = ""
-    out8 = ""
+    output1 = ""
+    output2 = ""
+    output3 = ""
+    output4 = ""
+    output5 = ""
+    output6 = ""
+    output7 = ""
+    output8 = ""
     hdmichange_status = "None"
     # read codes for hdmi switcher
 
@@ -54,12 +54,12 @@ class hdmi_controller:
 
     def get_hdmi_status(self):
         # Telnet to the HDMI router
-        tn = telnetlib.Telnet(HOST)
-        print("Read HDMI Input Link States by sending: " + read_code['input_link_states'])
+        tn = telnetlib.Telnet(self.HOST)
+        print("Read HDMI Input Link States by sending: " + self.read_code['input_link_states'])
         # Write the command to read the input link states
         #   tn.write(read_code['input_link_states'])
         # What input is going to which output?
-        tn.write(read_code['output_channel_states'])
+        tn.write(self.read_code['output_channel_states'])
         # Read data until there is a new line
         data = tn.read_until('\n\r', 1)
         #   print("We got: " + data)
@@ -69,8 +69,8 @@ class hdmi_controller:
         tn.close()
         return data
 
-    def displayoutputstatus(self):
-        f = open('~/pieface/app/display.output', 'r')
+    def display_output_status(self):
+        f = open('/home/wpaquin/PycharmProjects/pieface/app/display.output', 'r')
         file_contents = f.read()
         return file_contents
         f.close()
