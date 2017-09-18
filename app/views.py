@@ -125,7 +125,7 @@ def index():
         sql = "SELECT * FROM PieFace.new_table;"
         cursor.execute(sql)
 
-#alex is a peice of shit
+        #alex is a peice of shit
         result = cursor.fetchone()
 
         selectedSet = result["test"]
