@@ -1,198 +1,215 @@
 <html>
 <head>
-   <title>{{ title }} - Paul Asadoorian</title>
+    <title>{{ title }} - Paul Asadoorian</title>
 </head>
 <body>
-<p><h1>Welcome to Pieface version {{ version }}!</h1></p>
+<p>
+<h1>Welcome to Pieface version {{ version }}!</h1></p>
 
-<p> Active Image Set {{ active }}<p>
+<p> Active Image Set {{ active }}
+<p>
 
-Choose your images wisely:
-<form method="post">
+    Choose your images wisely:
+    <form method="post">
 
-{{imageset_form.imageSet}} {{imageset_form.activate}} {{imageset_form.select}} <br>
-<br>
-{{imageset_form.addSet}}
+        {{imageset_form.imageSet}} {{imageset_form.activate}} {{imageset_form.select}} <br>
+        <br>
+        {{imageset_form.addSet}}
 
-<div>
-  <p>Resolution:{{imageset_form.resWidth}} X {{imageset_form.resHeight}}</p>
-  <p>Pause Time: {{imageset_form.pauseTime}} seconds</p>
-  <p>Default Image Set: {{imageset_form.isDefault}}</p>
-  <p>{{imageset_form.imageType.label}} {{imageset_form.imageType}}</p>
+        <div>
+<p>Resolution:{{imageset_form.resWidth}} X {{imageset_form.resHeight}}</p>
+<p>Pause Time: {{imageset_form.pauseTime}} seconds</p>
+<p>Default Image Set: {{imageset_form.isDefault}}</p>
+<p>{{imageset_form.imageType.label}} {{imageset_form.imageType}}</p>
 </div>
 
 </form>
 
-<p> {{ selected }} <p>
-
-<button type="button">Upload Image</button> <br>
-
-<img src="pic_mountain.jpg" alt="Mountain View" style="width:100px;height:100px;">
-<img src="pic_mountain.jpg" alt="Mountain View" style="width:100px;height:100px;">
-<img src="pic_mountain.jpg" alt="Mountain View" style="width:100px;height:100px;">
-<img src="pic_mountain.jpg" alt="Mountain View" style="width:100px;height:100px;"> <br>
-
-
-
-<!--<table style="empty-cells:hide; margin-left:auto; margin-right:auto;" border="1" cellpadding="1" cellspacing="1">
-   <form method="post">
-      <tr>
-         <td> </td>
-         <td>NONE</td>
-         <td>PSW</td>
-         <td>ESW</td>
-         <td>SSW</td>
-         <td>HNN</td>
-         <td>SG</td>
-         <td>SGSHORTS</td>
-         <td>SGNEWS</td>
-         <td>STATIC</td>
-      </tr>
-      <tr>
-         <td>Set the images to which one:</td>
-         <td><input type="radio" class="button" name="current_image" value="NONE" checked="checked"></td>
-         <td><input type="radio" class="button" name="current_image" value="psw"></td>
-         <td><input type="radio" class="button" name="current_image" value="esw"></td>
-         <td><input type="radio" class="button" name="current_image" value="ssw"></td>
-         <td><input type="radio" class="button" name="current_image" value="hnn"></td>
-         <td><input type="radio" class="button" name="current_image" value="sg"></td>
-         <td><input type="radio" class="button" name="current_image" value="sgshorts"></td>
-         <td><input type="radio" class="button" name="current_image" value="sgnews"></td>
-         <td><input type="radio" class="button" name="current_image" value="static"></td>
-      </tr>
-      <tr><td><input type="submit" value="Submit"></td></tr>
-</table> -->
-<!--<p>Status Message: <pre> {{ imgchange_status }} </pre></p>
-</p> -->
-<!--
-<script type=text/javascript>
-setInterval(                               //Periodically
-  function()
-  {
-     $.getJSON(                            //Get some values from the server
-        $SCRIPT_ROOT + '/displayoutputstatus',      // At this URL
-        {},                                // With no extra parameters
-        function(data)                     // And when you get a response
-        {
-          $("#result").text(data.result);  // Write the results into the
-                                           // #result element
-        });
-  },
-  500);                                    // And do it every 500ms
-</script>
+<p> {{ selected }}
 <p>
-<h1>jQuery Example</h1>
-   <span id=result>?</span>
-</p>
--->
+
+    <button type="button">Upload Image</button>
+    <br>
+
+    <img src="pic_mountain.jpg" alt="Mountain View" style="width:100px;height:100px;">
+    <img src="pic_mountain.jpg" alt="Mountain View" style="width:100px;height:100px;">
+    <img src="pic_mountain.jpg" alt="Mountain View" style="width:100px;height:100px;">
+    <img src="pic_mountain.jpg" alt="Mountain View" style="width:100px;height:100px;"> <br>
+
+
+    <!--<table style="empty-cells:hide; margin-left:auto; margin-right:auto;" border="1" cellpadding="1" cellspacing="1">
+       <form method="post">
+          <tr>
+             <td> </td>
+             <td>NONE</td>
+             <td>PSW</td>
+             <td>ESW</td>
+             <td>SSW</td>
+             <td>HNN</td>
+             <td>SG</td>
+             <td>SGSHORTS</td>
+             <td>SGNEWS</td>
+             <td>STATIC</td>
+          </tr>
+          <tr>
+             <td>Set the images to which one:</td>
+             <td><input type="radio" class="button" name="current_image" value="NONE" checked="checked"></td>
+             <td><input type="radio" class="button" name="current_image" value="psw"></td>
+             <td><input type="radio" class="button" name="current_image" value="esw"></td>
+             <td><input type="radio" class="button" name="current_image" value="ssw"></td>
+             <td><input type="radio" class="button" name="current_image" value="hnn"></td>
+             <td><input type="radio" class="button" name="current_image" value="sg"></td>
+             <td><input type="radio" class="button" name="current_image" value="sgshorts"></td>
+             <td><input type="radio" class="button" name="current_image" value="sgnews"></td>
+             <td><input type="radio" class="button" name="current_image" value="static"></td>
+          </tr>
+          <tr><td><input type="submit" value="Submit"></td></tr>
+    </table> -->
+    <!--<p>Status Message: <pre> {{ imgchange_status }} </pre></p>
+    </p> -->
+    <!--
+    <script type=text/javascript>
+    setInterval(                               //Periodically
+      function()
+      {
+         $.getJSON(                            //Get some values from the server
+            $SCRIPT_ROOT + '/displayoutputstatus',      // At this URL
+            {},                                // With no extra parameters
+            function(data)                     // And when you get a response
+            {
+              $("#result").text(data.result);  // Write the results into the
+                                               // #result element
+            });
+      },
+      500);                                    // And do it every 500ms
+    </script>
+    <p>
+    <h1>jQuery Example</h1>
+       <span id=result>?</span>
+    </p>
+    -->
 
 <p>
-Tell me, where do you want your inputs to go? I can help with that...<br>
+    Tell me, where do you want your inputs to go? I can help with that...<br>
 <table style="empty-cells:hide; margin-left:auto; margin-right:auto;" border="1" cellpadding="1" cellspacing="1">
-<!--   <form method="post"> -->
-   <tr>
-      <td> </td><td>NONE</td> <td>IN1</td> <td>IN2</td> <td>IN3</td> <td>IN4</td> <td>IN5</td> <td>IN6</td> <td>IN7</td> <td>IN8</td>
-   </tr>
-   <tr>
-      <td>OUTPUT 1 (PSW TV #1)</td>
-      <td><input type="radio" name="out1" value="out0in0" checked="checked"></td>
-      <td><input type="radio" name="out1" value="out1in1"></td>
-      <td><input type="radio" name="out1" value="out1in2"></td>
-      <td><input type="radio" name="out1" value="out1in3"></td>
-      <td><input type="radio" name="out1" value="out1in4"></td>
-      <td><input type="radio" name="out1" value="out1in5"></td>
-      <td><input type="radio" name="out1" value="out1in6"></td>
-      <td><input type="radio" name="out1" value="out1in7"></td>
-      <td><input type="radio" name="out1" value="out1in8"></td>
-   </tr>
-   <tr>
-      <td>OUTPUT 2 (PSW TV #2)</td>
-      <td><input type="radio" name="out2" value="out0in0" checked="checked"></td>
-      <td><input type="radio" name="out2" value="out2in1"></td>
-      <td><input type="radio" name="out2" value="out2in2"></td>
-      <td><input type="radio" name="out2" value="out2in3"></td>
-      <td><input type="radio" name="out2" value="out2in4"></td>
-      <td><input type="radio" name="out2" value="out2in5"></td>
-      <td><input type="radio" name="out2" value="out2in6"></td>
-      <td><input type="radio" name="out2" value="out2in7"></td>
-      <td><input type="radio" name="out2" value="out2in8"></td>
-   </tr>
-   <tr>
-      <td>OUTPUT 3 (Stogie Geeks TV)</td>
-      <td><input type="radio" name="out3" value="out0in0" checked="checked"></td>
-      <td><input type="radio" name="out3" value="out3in1"</td>
-      <td><input type="radio" name="out3" value="out3in2"></td>
-      <td><input type="radio" name="out3" value="out3in3"></td>
-      <td><input type="radio" name="out3" value="out3in4"></td>
-      <td><input type="radio" name="out3" value="out3in5"></td>
-      <td><input type="radio" name="out3" value="out3in6"></td>
-      <td><input type="radio" name="out3" value="out3in7"></td>
-      <td><input type="radio" name="out3" value="out3in8"></td>
-   </tr>
-   <tr>
-      <td>OUTPUT 4 (News Desk TV)</td>
-      <td><input type="radio" name="out4" value="out0in0" checked="checked"></td>
-      <td><input type="radio" name="out4" value="out4in1"></td>
-      <td><input type="radio" name="out4" value="out4in2"></td>
-      <td><input type="radio" name="out4" value="out4in3"></td>
-      <td><input type="radio" name="out4" value="out4in4"></td>
-      <td><input type="radio" name="out4" value="out4in5"></td>
-      <td><input type="radio" name="out4" value="out4in6"></td>
-      <td><input type="radio" name="out4" value="out4in7"></td>
-      <td><input type="radio" name="out4" value="out4in8"></td>
-   </tr>
-   <tr>
-      <td>OUTPUT 5 (Studio Monitor Monitor)</td>
-      <td><input type="radio" name="out5" value="out0in0" checked="checked"></td>
-      <td><input type="radio" name="out5" value="out5in1"></td>tag = request.form['tag']
-      <td><input type="radio" name="out5" value="out5in2"></td>
-      <td><input type="radio" name="out5" value="out5in3"></td>
-      <td><input type="radio" name="out5" value="out5in4"></td>
-      <td><input type="radio" name="out5" value="out5in5"></td>
-      <td><input type="radio" name="out5" value="out5in6"></td>
-      <td><input type="radio" name="out5" value="out5in7"></td>
-      <td><input type="radio" name="out5" value="out5in8"></td>
-   </tr>
-   <tr>
-      <td>OUTPUT 6 </td>
-      <td><input type="radio" name="out6" value="out0in0" checked="checked"></td>
-      <td><input type="radio" name="out6" value="out6in1"></td>
-      <td><input type="radio" name="out6" value="out6in2"></td>
-      <td><input type="radio" name="out6" value="out6in3"></td>
-      <td><input type="radio" name="out6" value="out6in4"></td>
-      <td><input type="radio" name="out6" value="out6in5"></td>
-      <td><input type="radio" name="out6" value="out6in6"></td>
-      <td><input type="radio" name="out6" value="out6in7"></td>
-      <td><input type="radio" name="out6" value="out6in8"></td>
-   </tr>
-   <tr>
-      <td>OUTPUT 7 </td>
-      <td><input type="radio" name="out7" value="out0in0" checked="checked"></td>
-      <td><input type="radio" name="out7" value="out7in1"></td>
-      <td><input type="radio" name="out7" value="out7in2"></td>
-      <td><input type="radio" name="out7" value="out7in3"></td>
-      <td><input type="radio" name="out7" value="out7in4"></td>
-      <td><input type="radio" name="out7" value="out7in5"></td>
-      <td><input type="radio" name="out7" value="out7in6"></td>
-      <td><input type="radio" name="out7" value="out7in7"></td>
-      <td><input type="radio" name="out7" value="out7in8"></td>
-   </tr>
-   <tr>
-      <td>OUTPUT 8 </td>
-      <td><input type="radio" name="out8" value="out0in0" checked="checked"></td>
-      <td><input type="radio" name="out8" value="out8in1"</td>
-      <td><input type="radio" name="out8" value="out8in2"></td>
-      <td><input type="radio" name="out8" value="out8in3"></td>
-      <td><input type="radio" name="out8" value="out8in4"></td>
-      <td><input type="radio" name="out8" value="out8in5"></td>
-      <td><input type="radio" name="out8" value="out8in6"></td>
-      <td><input type="radio" name="out8" value="out8in7"></td>
-      <td><input type="radio" name="out8" value="out8in8"></td>
-   </tr>
-   <tr><td><input type="submit" value="Submit"></td></tr>
-   </form>
+    <!--   <form method="post"> -->
+    <tr>
+        <td></td>
+        <td>NONE</td>
+        <td>IN1</td>
+        <td>IN2</td>
+        <td>IN3</td>
+        <td>IN4</td>
+        <td>IN5</td>
+        <td>IN6</td>
+        <td>IN7</td>
+        <td>IN8</td>
+    </tr>
+    <tr>
+        <td>OUTPUT 1 (PSW TV #1)</td>
+        <td><input type="radio" name="out1" value="out0in0" checked="checked"></td>
+        <td><input type="radio" name="out1" value="out1in1"></td>
+        <td><input type="radio" name="out1" value="out1in2"></td>
+        <td><input type="radio" name="out1" value="out1in3"></td>
+        <td><input type="radio" name="out1" value="out1in4"></td>
+        <td><input type="radio" name="out1" value="out1in5"></td>
+        <td><input type="radio" name="out1" value="out1in6"></td>
+        <td><input type="radio" name="out1" value="out1in7"></td>
+        <td><input type="radio" name="out1" value="out1in8"></td>
+    </tr>
+    <tr>
+        <td>OUTPUT 2 (PSW TV #2)</td>
+        <td><input type="radio" name="out2" value="out0in0" checked="checked"></td>
+        <td><input type="radio" name="out2" value="out2in1"></td>
+        <td><input type="radio" name="out2" value="out2in2"></td>
+        <td><input type="radio" name="out2" value="out2in3"></td>
+        <td><input type="radio" name="out2" value="out2in4"></td>
+        <td><input type="radio" name="out2" value="out2in5"></td>
+        <td><input type="radio" name="out2" value="out2in6"></td>
+        <td><input type="radio" name="out2" value="out2in7"></td>
+        <td><input type="radio" name="out2" value="out2in8"></td>
+    </tr>
+    <tr>
+        <td>OUTPUT 3 (Stogie Geeks TV)</td>
+        <td><input type="radio" name="out3" value="out0in0" checked="checked"></td>
+        <td><input type="radio" name="out3" value="out3in1"</td>
+        <td><input type="radio" name="out3" value="out3in2"></td>
+        <td><input type="radio" name="out3" value="out3in3"></td>
+        <td><input type="radio" name="out3" value="out3in4"></td>
+        <td><input type="radio" name="out3" value="out3in5"></td>
+        <td><input type="radio" name="out3" value="out3in6"></td>
+        <td><input type="radio" name="out3" value="out3in7"></td>
+        <td><input type="radio" name="out3" value="out3in8"></td>
+    </tr>
+    <tr>
+        <td>OUTPUT 4 (News Desk TV)</td>
+        <td><input type="radio" name="out4" value="out0in0" checked="checked"></td>
+        <td><input type="radio" name="out4" value="out4in1"></td>
+        <td><input type="radio" name="out4" value="out4in2"></td>
+        <td><input type="radio" name="out4" value="out4in3"></td>
+        <td><input type="radio" name="out4" value="out4in4"></td>
+        <td><input type="radio" name="out4" value="out4in5"></td>
+        <td><input type="radio" name="out4" value="out4in6"></td>
+        <td><input type="radio" name="out4" value="out4in7"></td>
+        <td><input type="radio" name="out4" value="out4in8"></td>
+    </tr>
+    <tr>
+        <td>OUTPUT 5 (Studio Monitor Monitor)</td>
+        <td><input type="radio" name="out5" value="out0in0" checked="checked"></td>
+        <td><input type="radio" name="out5" value="out5in1"></td>
+        tag = request.form['tag']
+        <td><input type="radio" name="out5" value="out5in2"></td>
+        <td><input type="radio" name="out5" value="out5in3"></td>
+        <td><input type="radio" name="out5" value="out5in4"></td>
+        <td><input type="radio" name="out5" value="out5in5"></td>
+        <td><input type="radio" name="out5" value="out5in6"></td>
+        <td><input type="radio" name="out5" value="out5in7"></td>
+        <td><input type="radio" name="out5" value="out5in8"></td>
+    </tr>
+    <tr>
+        <td>OUTPUT 6</td>
+        <td><input type="radio" name="out6" value="out0in0" checked="checked"></td>
+        <td><input type="radio" name="out6" value="out6in1"></td>
+        <td><input type="radio" name="out6" value="out6in2"></td>
+        <td><input type="radio" name="out6" value="out6in3"></td>
+        <td><input type="radio" name="out6" value="out6in4"></td>
+        <td><input type="radio" name="out6" value="out6in5"></td>
+        <td><input type="radio" name="out6" value="out6in6"></td>
+        <td><input type="radio" name="out6" value="out6in7"></td>
+        <td><input type="radio" name="out6" value="out6in8"></td>
+    </tr>
+    <tr>
+        <td>OUTPUT 7</td>
+        <td><input type="radio" name="out7" value="out0in0" checked="checked"></td>
+        <td><input type="radio" name="out7" value="out7in1"></td>
+        <td><input type="radio" name="out7" value="out7in2"></td>
+        <td><input type="radio" name="out7" value="out7in3"></td>
+        <td><input type="radio" name="out7" value="out7in4"></td>
+        <td><input type="radio" name="out7" value="out7in5"></td>
+        <td><input type="radio" name="out7" value="out7in6"></td>
+        <td><input type="radio" name="out7" value="out7in7"></td>
+        <td><input type="radio" name="out7" value="out7in8"></td>
+    </tr>
+    <tr>
+        <td>OUTPUT 8</td>
+        <td><input type="radio" name="out8" value="out0in0" checked="checked"></td>
+        <td><input type="radio" name="out8" value="out8in1"</td>
+        <td><input type="radio" name="out8" value="out8in2"></td>
+        <td><input type="radio" name="out8" value="out8in3"></td>
+        <td><input type="radio" name="out8" value="out8in4"></td>
+        <td><input type="radio" name="out8" value="out8in5"></td>
+        <td><input type="radio" name="out8" value="out8in6"></td>
+        <td><input type="radio" name="out8" value="out8in7"></td>
+        <td><input type="radio" name="out8" value="out8in8"></td>
+    </tr>
+    <tr>
+        <td><input type="submit" value="Submit"></td>
+    </tr>
+    </form>
 </table>
-<p>Status Message: <pre> {{ hdmichange_status }} </pre></p>
+<p>Status Message:
+<pre> {{ hdmichange_status }} </pre>
+</p>
 </p>
 </body>
 </html>
