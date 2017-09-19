@@ -22,9 +22,8 @@ print("Read HDMI Input Link States by sending: ")
 # tn.write(read_code['input_link_states'])
 
 
-tn.write((">@ R8001\r").encode("utf-8"))
+tn.write((">@ R8006\r").encode("utf-8"))
 
-time.sleep(5)
 
 # What input is going to which output?
 # tn.write(read_code['output_channel_states'])
@@ -35,6 +34,6 @@ data = tn.read_some()
 #   print("We got: " + data)
 #   tn.write(read_code['system_status'])
 
-
+data = tn.read_until(b'\r\n')
 print(data)
 tn.close()
