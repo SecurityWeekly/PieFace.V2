@@ -11,5 +11,3 @@ class ImageSetForm(Form):
    pauseTime = TextField("Pause Time in Seconds")
    isDefault = BooleanField("Default Image Set:")
    imageType = RadioField("Type", choices = [('image', 'Image'), ('video', 'Video')])
-
-   #Hashtag
