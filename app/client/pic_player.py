@@ -40,7 +40,7 @@ delay = 3500
 # get a series of gif images you have in the working folder
 # or use full path, or set directory to where the images are
 image_files = [
-    Image.open('images/download.jpg').resize((App.winfo_screenheight(), App.winfo_screenwidth()), Image.ANTIALIAS),
+    Image.open('images/download.jpg').resize((1920, 1080), Image.ANTIALIAS),
     Image.open('images/download2.png').resize((1920, 1080), Image.ANTIALIAS),
     Image.open('images/download3.jpg').resize((1920, 1080), Image.ANTIALIAS)
 ]
