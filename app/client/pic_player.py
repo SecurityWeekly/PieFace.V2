@@ -4,7 +4,7 @@ import tkinter as tk
 from PIL import ImageTk, Image
 
 
-class pic_player(tk.Tk):
+class App(tk.Tk):
     '''Tk window/label adjusts to size of image'''
 
     def __init__(self, image_files, x, y, delay):
@@ -35,18 +35,18 @@ class pic_player(tk.Tk):
         self.mainloop()
 
 
-# # set milliseconds time between slides
-# delay = 3500
-# # get a series of gif images you have in the working folder
-# # or use full path, or set directory to where the images are
-# image_files = [
-#     Image.open('images/download.jpg').resize((pic_player.winfo_screenheight(), App.winfo_screenwidth()), Image.ANTIALIAS),
-#     Image.open('images/download2.png').resize((1920, 1080), Image.ANTIALIAS),
-#     Image.open('images/download3.jpg').resize((1920, 1080), Image.ANTIALIAS)
-# ]
-# # upper left corner coordinates of app window
-# x = 100
-# y = 50
-# app = pic_player(image_files, x, y, delay)
-# app.show_slides()
-# app.run()
+# set milliseconds time between slides
+delay = 3500
+# get a series of gif images you have in the working folder
+# or use full path, or set directory to where the images are
+image_files = [
+    Image.open('images/download.jpg').resize((1920, 1080), Image.ANTIALIAS),
+    Image.open('images/download2.png').resize((1920, 1080), Image.ANTIALIAS),
+    Image.open('images/download3.jpg').resize((1920, 1080), Image.ANTIALIAS)
+]
+# upper left corner coordinates of app window
+x = 100
+y = 50
+app = App(image_files, x, y, delay)
+app.show_slides()
+app.run()
