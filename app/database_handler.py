@@ -1,7 +1,7 @@
 import pymysql
 import pymysql.cursors
 
-connection = pymysql.connect(host='localhost', user='root', password='Password1', db='PieFace', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+connection = pymysql.connect(host='10.13.37.95', user='kyle', password='Password1@', db='PieFace', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
 cursor = ""
 
 class database_handler:
@@ -13,7 +13,7 @@ class database_handler:
         cursor = connection.cursor()
 
     def select_all(self):
-        sql = "SELECT * FROM PieFace.new_table;"
+        sql = "SELECT * FROM PieFace.PieFace;"
         cursor.execute(sql)
         result = cursor.fetchone()
         return result

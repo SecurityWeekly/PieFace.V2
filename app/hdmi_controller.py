@@ -70,7 +70,7 @@ class hdmi_controller:
         return data
 
     def display_output_status(self):
-        f = open('/home/wpaquin/PycharmProjects/pieface/app/display.output', 'r')
+        f = open('/home/kyle/pieface/app/display.output', 'r')
         file_contents = f.read()
         return file_contents
         f.close()

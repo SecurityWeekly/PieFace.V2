@@ -3,6 +3,7 @@ from app import app
 from app.forms import ImageSetForm
 from app import hdmi_controller
 from app import database_handler
+from app.client import pic_player
 import subprocess
 
 # declare new hdmi_controller instance
@@ -26,6 +27,7 @@ def index():
     selectedSet = "No Set Selected Yet"
     form = ImageSetForm()
     imageset_form = ImageSetForm()
+    #pic_play = pic_player()
 
     imgchange_status = hdmi_controller.display_output_status
 
@@ -40,6 +42,19 @@ def index():
 
         if imageset_form.activate.data == True:
             activeSet = request.form['imageSet']
+            # delay = 3500
+            # # get a series of gif images you have in the working folder
+            # # or use full path, or set directory to where the images are
+            # image_files = [
+            #     '/home/kyle/Desktop/CatPics/Cat1.jpg',
+            #     '/home/kyle/Desktop/CatPics/Cat2.png',
+            #     '/home/kyle/Desktop/CatPics/Cat3.jpg'
+            # ]
+            # # upper left corner coordinates of app window
+            # x = 100
+            # y = 50
+            # pic_player.pic_player(image_files, x, y, delay)
+
 
         elif imageset_form.select.data == True:
             selectedSet = request.form['imageSet']
