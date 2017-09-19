@@ -94,7 +94,7 @@ def index():
     #   form = ImageSetForm()
     imageset_form = ImageSetForm()
 
-    imgchange_status = displayoutputstatus()
+    #imgchange_status = displayoutputstatus()
 
     '''if request.method == 'POST':
        print("We got a POST request")
@@ -125,7 +125,7 @@ def index():
         sql = "SELECT * FROM PieFace.new_table;"
         cursor.execute(sql)
 
-        #alex is a peice of shit
+
         result = cursor.fetchone()
 
         selectedSet = result["test"]
