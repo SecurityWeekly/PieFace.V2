@@ -12,7 +12,7 @@ read_code = {'input_link_states': ">@ R8001\r",
              'network_states': ">@ R8012\r"}
 
 HOST = "172.16.1.35"
-# HOST = "mapscii.me"
+
 TCP_PORT = 23
 BUFFER_SIZE = 32767
 # Telnet to the HDMI router
@@ -35,5 +35,11 @@ data = tn.read_some()
 #   tn.write(read_code['system_status'])
 
 data = tn.read_until(b'\r\n')
+data = str(data).strip()
+new_data = data.split("[")
+
 print(data)
+for i in range(1, len(new_data)):
+    print("Output " + str(i) + "    Input: " + new_data[i][1])
+
 tn.close()
