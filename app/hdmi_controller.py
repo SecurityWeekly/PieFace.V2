@@ -3,23 +3,24 @@ import telnetlib
 
 class hdmi_controller:
     # define class variables
-    hdmi_status = ""
 
-    output1 = ""
-    output2 = ""
-    output3 = ""
-    output4 = ""
-    output5 = ""
-    output6 = ""
-    output7 = ""
-    output8 = ""
+    outputs = {"output_1": "input_1",
+               "output_2": "input_1",
+               "output_3": "input_1",
+               "output_4": "input_1",
+               "output_5": "input_1",
+               "output_6": "input_1",
+               "output_7": "input_1",
+               "output_8": "input_1"}
+
     hdmichange_status = "None"
+
     # read codes for hdmi switcher
 
     #
     # These are the codes and the responses
     #
-    # R8001	:  Read INPUT Link States
+    # R80http://10.13.37.103/potato.jpg01	:  Read INPUT Link States
     # R8002	:  Read OUTPUT Link States
     # R8003	:  Read INPUT HDCP States
     # R8004	:  Read OUTPUT HDCP States
@@ -52,25 +53,31 @@ class hdmi_controller:
         # default constructor
         print("New instance of hdmi_controller has been created")
 
-    def get_hdmi_status(self):
-        # Telnet to the HDMI router
-        tn = telnetlib.Telnet(self.HOST)
-        print("Read HDMI Input Link States by sending: " + self.read_code['input_link_states'])
-        # Write the command to read the input link states
-        #   tn.write(read_code['input_link_states'])
-        # What input is going to which output?
-        tn.write(self.read_code['output_channel_states'])
-        # Read data until there is a new line
-        data = tn.read_until('\n\r', 1)
-        #   print("We got: " + data)
-        #   tn.write(read_code['system_status'])
-        #   data=tn.read_until('\n\r',2)
-        #   print("We got: " + data)
-        tn.close()
-        return data
 
-    def display_output_status(self):
-        f = open('/home/kyle/pieface/app/display.output', 'r')
-        file_contents = f.read()
-        return file_contents
-        f.close()
+    def get_outputs(self):
+
+        tn = telnetlib.Telnet(self.HOST, self.TCP_PORT)
+        print("Read HDMI Input Link States by sending: ")
+        # Write the command to read the input link states
+        # tn.write(read_code['input_link_states'])
+
+        tn.write((">@ R8006\r").encode("utf-8"))
+
+        # What input is going to which output?
+        # tn.write(read_code['output_channel_states'])
+        # Read data until there is a new line
+
+        data = tn.read_until(b'\n')
+        data = tn.read_until(b'\n')
+
+        data = str(data).strip()
+        new_data = data.split("[")
+
+        print(data)
+        for i in range(1, len(new_data)):
+            print("Output " + str(i) + "    Input: " + new_data[i][1])
+
+        tn.close()
+
+    def switch_inputs(self, output, input):
+        print("Switching outputs...")
