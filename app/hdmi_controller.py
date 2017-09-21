@@ -4,8 +4,14 @@ import telnetlib
 class hdmi_controller:
     # define class variables
 
-    outputs = {"input1": "output1",
-               "input2": "output1"}
+    outputs = {"output_1": "input_1",
+               "output_2": "input_1",
+               "output_3": "input_1",
+               "output_4": "input_1",
+               "output_5": "input_1",
+               "output_6": "input_1",
+               "output_7": "input_1",
+               "output_8": "input_1"}
 
     hdmichange_status = "None"
 
@@ -47,21 +53,8 @@ class hdmi_controller:
         # default constructor
         print("New instance of hdmi_controller has been created")
 
-    def display_output_status(self):
-        f = open('/home/wpaquin/PycharmProjects/pieface/app/display.output', 'r')
-        file_contents = f.read()
-        return file_contents
-        f.close()
-
     def get_outputs(self):
-        self.output1 = "";
-        self.output2 = "";
-        self.output3 = "";
-        self.output4 = "";
-        self.output5 = "";
-        self.output6 = "";
-        self.output7 = "";
-        self.output8 = "";
+
 
         tn = telnetlib.Telnet(self.HOST, self.TCP_PORT)
         print("Read HDMI Input Link States by sending: ")
@@ -90,5 +83,5 @@ class hdmi_controller:
 
         tn.close()
 
-    def switch_outputs(self):
+    def switch_inputs(self, output, input):
         print("Switching outputs...")
