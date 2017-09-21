@@ -3,23 +3,18 @@ import telnetlib
 
 class hdmi_controller:
     # define class variables
-    hdmi_status = ""
 
-    output1 = ""
-    output2 = ""
-    output3 = ""
-    output4 = ""
-    output5 = ""
-    output6 = ""
-    output7 = ""
-    output8 = ""
+    outputs = {"input1": "output1",
+               "input2": "output1"}
+
     hdmichange_status = "None"
+
     # read codes for hdmi switcher
 
     #
     # These are the codes and the responses
     #
-    # R8001	:  Read INPUT Link States
+    # R80http://10.13.37.103/potato.jpg01	:  Read INPUT Link States
     # R8002	:  Read OUTPUT Link States
     # R8003	:  Read INPUT HDCP States
     # R8004	:  Read OUTPUT HDCP States
@@ -52,30 +47,13 @@ class hdmi_controller:
         # default constructor
         print("New instance of hdmi_controller has been created")
 
-    def get_hdmi_status(self):
-        # Telnet to the HDMI router
-        tn = telnetlib.Telnet(self.HOST)
-        print("Read HDMI Input Link States by sending: " + self.read_code['input_link_states'])
-        # Write the command to read the input link states
-        #   tn.write(read_code['input_link_states'])
-        # What input is going to which output?
-        tn.write(self.read_code['output_channel_states'])
-        # Read data until there is a new line
-        data = tn.read_until('\n\r', 1)
-        #   print("We got: " + data)
-        #   tn.write(read_code['system_status'])
-        #   data=tn.read_until('\n\r',2)
-        #   print("We got: " + data)
-        tn.close()
-        return data
-
     def display_output_status(self):
         f = open('/home/wpaquin/PycharmProjects/pieface/app/display.output', 'r')
         file_contents = f.read()
         return file_contents
         f.close()
 
-    def get_get_outputs(self):
+    def get_outputs(self):
         self.output1 = "";
         self.output2 = "";
         self.output3 = "";
@@ -111,3 +89,6 @@ class hdmi_controller:
             print("Output " + i + "Input: " + new_data[i])
 
         tn.close()
+
+    def switch_outputs(self):
+        print("Switching outputs...")
