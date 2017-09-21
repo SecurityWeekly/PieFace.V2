@@ -53,33 +53,29 @@ class hdmi_controller:
         # default constructor
         print("New instance of hdmi_controller has been created")
 
-    def get_outputs(self):
 
+    def get_outputs(self):
 
         tn = telnetlib.Telnet(self.HOST, self.TCP_PORT)
         print("Read HDMI Input Link States by sending: ")
         # Write the command to read the input link states
         # tn.write(read_code['input_link_states'])
 
-
         tn.write((">@ R8006\r").encode("utf-8"))
 
         # What input is going to which output?
         # tn.write(read_code['output_channel_states'])
         # Read data until there is a new line
-        data = tn.read_some()
-        # data = tn.read_lazy()
 
-        #   print("We got: " + data)
-        #   tn.write(read_code['system_status'])
+        data = tn.read_until(b'\n')
+        data = tn.read_until(b'\n')
 
-        data = tn.read_until(b'\r\n')
         data = str(data).strip()
         new_data = data.split("[")
 
         print(data)
-        for i in range(0, len(data)):
-            print("Output " + i + "Input: " + new_data[i])
+        for i in range(1, len(new_data)):
+            print("Output " + str(i) + "    Input: " + new_data[i][1])
 
         tn.close()
 
