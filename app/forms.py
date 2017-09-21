@@ -15,4 +15,20 @@ class ImageSetForm(Form):
     isDefault = BooleanField("Default Image Set:")
     imageType = RadioField("Type", choices=[('image', 'Image'), ('video', 'Video')])
 
-    # Hashtag
+    output1 = SelectField('Output1',
+                          choices=[('', ''), ('input1', 'Input 1'), ('input2', 'Input 2')])
+    output2 = SelectField('Output2',
+                          choices=[('', ''), ('input1', 'Input 1'), ('input2', 'Input 2')])
+    output3 = SelectField('Output3',
+                          choices=[('', ''), ('input1', 'Input 1'), ('input2', 'Input 2')])
+    output4 = SelectField('Output4',
+                          choices=[('', ''), ('input1', 'Input 1'), ('input2', 'Input 2')])
+    output5 = SelectField('Output5',
+                          choices=[('', ''), ('input1', 'Input 1'), ('input2', 'Input 2')])
+    output6 = SelectField('Output6',
+                          choices=[('', ''), ('input1', 'Input 1'), ('input2', 'Input 2')])
+    output7 = SelectField('Output7',
+                          choices=[('', ''), ('input1', 'Input 1'), ('input2', 'Input 2')])
+    output8 = SelectField('Output8',
+                          choices=[('', ''), ('input1', 'Input 1'), ('input2', 'Input 2')])
+    switch = SubmitField("Submit Output")
