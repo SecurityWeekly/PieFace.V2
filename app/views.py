@@ -33,18 +33,18 @@ def index():
     # Coll
     if request.method == 'POST':
 
-        selectedSet = database_handler.select_all()
+        # selectedSet = database_handler.select_all()
         test = request.form['output1']
+        output = recieve_output_input()
 
-        print(test)
+        print(output)
 
-        if imageset_form.validate():
-            print("activate button was pressed : {value}".format(value=imageset_form.activate.data))
-            print("select button was pressed : {value}".format(value=imageset_form.select.data))
+        # if imageset_form.validate():
+        #     print("activate button was pressed : {value}".format(value=imageset_form.activate.data))
+        #     print("select button was pressed : {value}".format(value=imageset_form.select.data))
 
         if imageset_form.activate.data == True:
             activeSet = request.form['imageSet']
-
 
         elif imageset_form.select.data == True:
             selectedSet = request.form['imageSet']
@@ -73,8 +73,29 @@ def index():
                            imgchange_status="hdmi_controller.display_output_status()")
 
 
+def recieve_output_input():
+    if request.form['output1']:
+        response = "out1" + '-' + request.form['output1']
 
+    elif request.form['output2']:
+        response = "out2" + '-' + request.form['output2']
 
+    elif request.form['output3']:
+        response = "out3" + '-' + request.form['output3']
 
+    elif request.form['output4']:
+        response = "out4" + '-' + request.form['output4']
 
-    # print(hdmichange_status)
+    elif request.form['output5']:
+        response = "out5" + '-' + request.form['output5']
+
+    elif request.form['output6']:
+        response = "out6" + '-' + request.form['output6']
+
+    elif request.form['output7']:
+        response = "out7" + '-' + request.form['output7']
+
+    elif request.form['output8']:
+        response = "out8" + '-' + request.form['output8']
+
+    return response
