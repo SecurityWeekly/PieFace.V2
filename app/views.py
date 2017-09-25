@@ -25,7 +25,6 @@ def index():
     version = '0.1'
     current_image = "NONE"
     selectedSet = "No Set Selected Yet"
-    form = ImageSetForm()
     imageset_form = ImageSetForm()
 
     # imgchange_status = hdmi_controller.display_output_status
@@ -33,21 +32,29 @@ def index():
     # Coll
     if request.method == 'POST':
 
+        if 'imageSet' in request.form:
+            print("i clicked on form 1 submit!")
+        elif 'output7' in request.form:
+            print("i clicked on form2 submit!")
+        else:
+            print("alex is a peice of shit")
+
         # selectedSet = database_handler.select_all()
-        test = request.form['output1']
-        output = recieve_output_input()
+        # output = get_output_input()
 
-        print(output)
+        # print(output)
 
-        # if imageset_form.validate():
-        #     print("activate button was pressed : {value}".format(value=imageset_form.activate.data))
-        #     print("select button was pressed : {value}".format(value=imageset_form.select.data))
+        if imageset_form.validate():
+            print("activate button was pressed : {value}".format(value=imageset_form.activate.data))
+            print("select button was pressed : {value}".format(value=imageset_form.select.data))
 
         if imageset_form.activate.data == True:
             activeSet = request.form['imageSet']
 
         elif imageset_form.select.data == True:
             selectedSet = request.form['imageSet']
+
+
 
             # if current_image != "NONE":
             #     print("Changing the current image to: " + current_image)
@@ -73,7 +80,7 @@ def index():
                            imgchange_status="hdmi_controller.display_output_status()")
 
 
-def recieve_output_input():
+def get_output_input():
     if request.form['output1']:
         response = "out1" + '-' + request.form['output1']
 
@@ -97,5 +104,7 @@ def recieve_output_input():
 
     elif request.form['output8']:
         response = "out8" + '-' + request.form['output8']
+    else:
+        response = "Nothing here good sir"
 
     return response

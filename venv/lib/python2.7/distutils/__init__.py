@@ -1,6 +1,6 @@
 import os
 import sys
-import warnings
+import warnings 
 import imp
 import opcode  # opcode is not a virtualenv module, so we can use it to find the stdlib
 
@@ -35,8 +35,6 @@ except NameError:
 
 if sys.platform == 'win32':
     from distutils.command.build_ext import build_ext as old_build_ext
-
-
     class build_ext(old_build_ext):
         def finalize_options(self):
             if self.library_dirs is None:
@@ -48,15 +46,12 @@ if sys.platform == 'win32':
             old_build_ext.finalize_options(self)
 
 
-    from distutils.command import build_ext as build_ext_module
-
+    from distutils.command import build_ext as build_ext_module 
     build_ext_module.build_ext = build_ext
 
 ## distutils.dist patches:
 
 old_find_config_files = dist.Distribution.find_config_files
-
-
 def find_config_files(self):
     found = old_find_config_files(self)
     system_distutils = os.path.join(distutils_path, 'distutils.cfg')
@@ -74,39 +69,27 @@ def find_config_files(self):
                 found.remove(item)
         found.append(user_filename)
     return found
-
-
 dist.Distribution.find_config_files = find_config_files
 
 ## distutils.sysconfig patches:
 
 old_get_python_inc = sysconfig.get_python_inc
-
-
 def sysconfig_get_python_inc(plat_specific=0, prefix=None):
     if prefix is None:
         prefix = sys.real_prefix
     return old_get_python_inc(plat_specific, prefix)
-
-
 sysconfig_get_python_inc.__doc__ = old_get_python_inc.__doc__
 sysconfig.get_python_inc = sysconfig_get_python_inc
 
 old_get_python_lib = sysconfig.get_python_lib
-
-
 def sysconfig_get_python_lib(plat_specific=0, standard_lib=0, prefix=None):
     if standard_lib and prefix is None:
         prefix = sys.real_prefix
     return old_get_python_lib(plat_specific, standard_lib, prefix)
-
-
 sysconfig_get_python_lib.__doc__ = old_get_python_lib.__doc__
 sysconfig.get_python_lib = sysconfig_get_python_lib
 
 old_get_config_vars = sysconfig.get_config_vars
-
-
 def sysconfig_get_config_vars(*args):
     real_vars = old_get_config_vars(*args)
     if sys.platform == 'win32':
@@ -116,7 +99,5 @@ def sysconfig_get_config_vars(*args):
         elif isinstance(real_vars, list) and 'LIBDIR' in args:
             real_vars = real_vars + [lib_dir]  # asked for list
     return real_vars
-
-
 sysconfig_get_config_vars.__doc__ = old_get_config_vars.__doc__
 sysconfig.get_config_vars = sysconfig_get_config_vars

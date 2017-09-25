@@ -65,7 +65,6 @@ ImportError exception, it is silently ignored.
 
 import sys
 import os
-
 try:
     import __builtin__ as builtins
 except ImportError:
@@ -90,7 +89,6 @@ _is_jython = sys.platform[:4] == 'java'
 if _is_jython:
     ModuleType = type(os)
 
-
 def makepath(*paths):
     dir = os.path.join(*paths)
     if _is_jython and (dir == '__classpath__' or
@@ -98,7 +96,6 @@ def makepath(*paths):
         return dir, dir
     dir = os.path.abspath(dir)
     return dir, os.path.normcase(dir)
-
 
 def abs__file__():
     """Set all module' __file__ attribute to an absolute path"""
@@ -112,7 +109,6 @@ def abs__file__():
         if f is None:
             continue
         m.__file__ = os.path.abspath(f)
-
 
 def removeduppaths():
     """ Remove duplicate entries from sys.path along with making them
@@ -132,7 +128,6 @@ def removeduppaths():
     sys.path[:] = L
     return known_paths
 
-
 # XXX This should not be part of site.py, since it is needed even when
 # using the -S option for Python.  See http://www.python.org/sf/586680
 def addbuilddir():
@@ -145,7 +140,6 @@ def addbuilddir():
     s = os.path.join(os.path.dirname(sys.path[-1]), s)
     sys.path.append(s)
 
-
 def _init_pathinfo():
     """Return a set containing all existing directory entries from sys.path"""
     d = set()
@@ -157,7 +151,6 @@ def _init_pathinfo():
         except TypeError:
             continue
     return d
-
 
 def addpackage(sitedir, name, known_paths):
     """Add a new path to known_paths by combining sitedir and 'name' or execute
@@ -190,7 +183,6 @@ def addpackage(sitedir, name, known_paths):
         known_paths = None
     return known_paths
 
-
 def addsitedir(sitedir, known_paths=None):
     """Add 'sitedir' argument to sys.path if missing and handle .pth files in
     'sitedir'"""
@@ -213,7 +205,6 @@ def addsitedir(sitedir, known_paths=None):
     if reset:
         known_paths = None
     return known_paths
-
 
 def addsitepackages(known_paths, sys_prefix=sys.prefix, exec_prefix=sys.exec_prefix):
     """Add site-packages (and possibly site-python) to sys.path"""
@@ -291,7 +282,6 @@ def addsitepackages(known_paths, sys_prefix=sys.prefix, exec_prefix=sys.exec_pre
                     addsitedir(sitedir, known_paths)
     return None
 
-
 def check_enableusersite():
     """Check if user site directory is safe for inclusion
 
@@ -315,7 +305,6 @@ def check_enableusersite():
             return None
 
     return True
-
 
 def addusersitepackages(known_paths):
     """Add a per user site-package to sys.path
@@ -369,6 +358,7 @@ def addusersitepackages(known_paths):
     return known_paths
 
 
+
 def setBEGINLIBPATH():
     """The OS/2 EMX port has optional extension modules that do double duty
     as DLLs (and must use the .DLL file extension) for other extensions.
@@ -401,10 +391,8 @@ def setquit():
     class Quitter(object):
         def __init__(self, name):
             self.name = name
-
         def __repr__(self):
             return 'Use %s() or %s to exit' % (self.name, eof)
-
         def __call__(self, code=None):
             # Shells like IDLE catch the SystemExit, but listen when their
             # stdin wrapper is closed.
@@ -413,7 +401,6 @@ def setquit():
             except:
                 pass
             raise SystemExit(code)
-
     builtins.quit = Quitter('quit')
     builtins.exit = Quitter('exit')
 
@@ -482,7 +469,6 @@ class _Printer(object):
                 if key == 'q':
                     break
 
-
 def setcopyright():
     """Set 'copyright' and 'credits' in __builtin__"""
     builtins.copyright = _Printer("copyright", sys.copyright)
@@ -514,15 +500,12 @@ class _Helper(object):
     def __repr__(self):
         return "Type help() for interactive help, " \
                "or help(object) for help about object."
-
     def __call__(self, *args, **kwds):
         import pydoc
         return pydoc.help(*args, **kwds)
 
-
 def sethelper():
     builtins.help = _Helper()
-
 
 def aliasmbcs():
     """On Windows, some default encodings are not provided by Python,
@@ -538,7 +521,6 @@ def aliasmbcs():
                 import encodings
                 encodings._cache[enc] = encodings._unknown
                 encodings.aliases.aliases[enc] = 'mbcs'
-
 
 def setencoding():
     """Set the string encoding used by the Unicode implementation.  The
@@ -566,7 +548,6 @@ def execsitecustomize():
         import sitecustomize
     except ImportError:
         pass
-
 
 def virtual_install_main_packages():
     f = open(os.path.join(os.path.dirname(__file__), 'orig-prefix.txt'))
@@ -643,7 +624,6 @@ def virtual_install_main_packages():
 
     sys.path.extend(paths)
 
-
 def force_global_eggs_after_local_site_packages():
     """
     Force easy_installed eggs in the global environment to get placed
@@ -659,11 +639,9 @@ def force_global_eggs_after_local_site_packages():
             egginsert = i
     sys.__egginsert = egginsert + 1
 
-
 def virtual_addsitepackages(known_paths):
     force_global_eggs_after_local_site_packages()
     return addsitepackages(known_paths, sys_prefix=sys.real_prefix)
-
 
 def fixclasspath():
     """Adjust the special classpath sys.path entries for Jython. These
@@ -678,7 +656,6 @@ def fixclasspath():
             paths.append(path)
     sys.path = paths
     sys.path.extend(classpaths)
-
 
 def execusercustomize():
     """Run custom user specific code, if available."""
@@ -723,9 +700,7 @@ def main():
     if hasattr(sys, "setdefaultencoding"):
         del sys.setdefaultencoding
 
-
 main()
-
 
 def _script():
     help = """\
@@ -748,13 +723,11 @@ def _script():
         for dir in sys.path:
             print("    %r," % (dir,))
         print("]")
-
         def exists(path):
             if os.path.isdir(path):
                 return "exists"
             else:
                 return "doesn't exist"
-
         print("USER_BASE: %r (%s)" % (USER_BASE, exists(USER_BASE)))
         print("USER_SITE: %r (%s)" % (USER_SITE, exists(USER_BASE)))
         print("ENABLE_USER_SITE: %r" % ENABLE_USER_SITE)
@@ -780,7 +753,6 @@ def _script():
         import textwrap
         print(textwrap.dedent(help % (sys.argv[0], os.pathsep)))
         sys.exit(10)
-
 
 if __name__ == '__main__':
     _script()

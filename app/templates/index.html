@@ -1,5 +1,6 @@
 <html>
 <head>
+
     <title>{{ title }} - Paul Asadoorian</title>
 </head>
 <body>
@@ -10,13 +11,13 @@
 <p>
 
     Choose your images wisely:
-    <form method="post">
+    <form method="post" name="form1">
 
         {{imageset_form.imageSet}} {{imageset_form.activate}} {{imageset_form.select}} <br>
         <br>
         {{imageset_form.addSet}}
 
-        <div>
+        <div class="form-group">
 <p>Resolution:{{imageset_form.resWidth}} X {{imageset_form.resHeight}}</p>
 <p>Pause Time: {{imageset_form.pauseTime}} seconds</p>
 <p>Default Image Set: {{imageset_form.isDefault}}</p>
@@ -31,9 +32,9 @@
     <button type="button">Upload Image</button>
     <br>
 
-    <img src="/home/kyle/pieface/app/client/images/download.jpg" alt="Download 1" style="width:100px;height:100px;">
-    <img src="/home/kyle/pieface/app/client/images/download2.png" alt="Download 2" style="width:100px;height:100px;">
-    <img src="/home/kyle/pieface/app/client/images/download3.jpg" alt="Download 3" style="width:100px;height:100px;">
+    <img src="{{ url_for('static',filename='images/download1.jpg')}}"/>
+    <img src="../download2.png" alt="Download 2" style="width:100px;height:100px;"/>
+    <img src="../download3.jpg" alt="Download 3" style="width:100px;height:100px;"/>
     <br>
 
 <p>
@@ -154,7 +155,7 @@
     <!--</form>-->
     <!--</table>-->
 
-    <form method="post">
+    <form method="post" name="form2">
 <p> OUTPUT 1 (PSW TV #1) {{imageset_form.output1}}</p>
 <p> OUTPUT 2 (PSW TV #2) {{imageset_form.output2}}</p>
 <p> OUTPUT 3 (Stogie Geeks TV) {{imageset_form.output3}}</p>

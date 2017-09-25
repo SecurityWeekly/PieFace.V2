@@ -1,7 +1,7 @@
 import pymysql
 import pymysql.cursors
 
-connection = pymysql.connect(host='10.13.37.95', user='kyle', password='Password1@', db='PieFace', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
+# connection = pymysql.connect(host='10.13.37.95', user='kyle', password='Password1@', db='PieFace', charset='utf8mb4', cursorclass=pymysql.cursors.DictCursor)
 cursor = ""
 
 class database_handler:
@@ -22,10 +22,4 @@ class database_handler:
 # Connect to the database
 
 
-cursor = connection.cursor()
-
-
-
-
-
-
+#cursor = connection.cursor()
