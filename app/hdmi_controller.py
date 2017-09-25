@@ -13,8 +13,6 @@ class hdmi_controller:
                "output_7": "input_1",
                "output_8": "input_1"}
 
-    hdmichange_status = "None"
-
     # read codes for hdmi switcher
 
     #
@@ -53,9 +51,7 @@ class hdmi_controller:
         # default constructor
         print("New instance of hdmi_controller has been created")
 
-
     def get_outputs(self):
-
         tn = telnetlib.Telnet(self.HOST, self.TCP_PORT)
         print("Read HDMI Input Link States by sending: ")
         # Write the command to read the input link states
@@ -75,9 +71,22 @@ class hdmi_controller:
 
         print(data)
         for i in range(1, len(new_data)):
-            print("Output " + str(i) + "    Input: " + new_data[i][1])
+            self.outputs['output_' + str(i)] = new_data[i][1]
 
         tn.close()
+        return self.outputs
 
     def switch_inputs(self, output, input):
-        print("Switching outputs...")
+        tn = telnetlib.Telnet(self.HOST, self.TCP_PORT)
+        # Write the command to read the input link states
+        # tn.write(read_code['input_link_states'])
+
+        tn.write((">@ WVSO[" + output + "]I[" + input + "]\r").encode("utf-8"))
+
+        data = tn.read_until(b'\n')
+        data = tn.read_until(b'\n')
+        print(str(data))
+
+        print(str(data).find("[N]"))
+
+        tn.close()
