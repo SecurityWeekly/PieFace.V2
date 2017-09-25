@@ -83,7 +83,8 @@ def index():
                            version=1.0,
                            selected=selectedSet,
                            hdmichange_status="hdmi_controller.get_hdmi_status",
-                           imgchange_status="hdmi_controller.display_output_status()")
+                           imgchange_status="hdmi_controller.display_output_status()",
+                           style="/static/css/bootstrap.css")
 
 
 def get_output_input():
