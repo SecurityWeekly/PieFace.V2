@@ -8,7 +8,7 @@ import subprocess
 # declare new hdmi_controller instance
 
 hdmi_controller = hdmi_controller.hdmi_controller()
-# database_handler = database_handler.database_handler()
+database_handler = database_handler.database_handler()
 
 app.secret_key = 's3cr3t'
 
@@ -36,6 +36,12 @@ def index():
             print("i clicked on form 1 submit!")
         elif 'output7' in request.form:
             print("i clicked on form2 submit!")
+
+            print(database_handler.select_all())
+
+
+
+
         else:
             print("alex is a peice of shit")
 
