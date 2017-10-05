@@ -11,26 +11,41 @@ connection = pymysql.connect(host='LARRY',
 
 
 class database_handler:
+    
     def __init__(self):
         # default constructor
         print("New database instance created")
 
 
 
-    def select_all(self):
+    def get_all_media_sets(self):
 
         result = ""
         try:
             cursor = connection.cursor()
-            sql = "SELECT * FROM PieFace.PieFace;"
-            cursor.execute(sql)
+            cursor.callproc("get_all_media_sets")
             result = cursor.fetchall()
 
 
         finally:
             connection.close()
+            
 
-        return result[0]
+        return result
+
+    def get_active_media_sets(self):
+        
+        result = ""
+        try:
+            cursor = connection.cursor()
+            cursor.callproc("get_active_media_sets")
+            result = cursor.fetchall()
+
+        finally:
+            connection.close()
+
+        return result
+        
 
 
 # Connect to the database
