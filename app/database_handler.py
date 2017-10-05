@@ -11,7 +11,8 @@ connection = pymysql.connect(host='LARRY',
 
 
 class database_handler:
-    
+
+        
     def __init__(self):
         # default constructor
         print("New database instance created")
