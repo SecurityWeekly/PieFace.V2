@@ -13,6 +13,7 @@ class hdmi_controller:
                "output_7": "input_1",
                "output_8": "input_1"}
 
+
     # read codes for hdmi switcher
 
     #

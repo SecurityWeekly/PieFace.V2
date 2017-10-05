@@ -1,5 +1,6 @@
 from flask_wtf import Form
 from wtforms import TextField, IntegerField, TextAreaField, SubmitField, RadioField, SelectField, BooleanField
+from wtforms.ext.sqlalchemy.fields import QuerySelectField
 
 
 class ImageSetForm(Form):
@@ -32,3 +33,4 @@ class ImageSetForm(Form):
     output8 = SelectField('Output8',
                           choices=[('', ''), ('input1', 'Input 1'), ('input2', 'Input 2')])
     switch = SubmitField("Submit Output")
+    
