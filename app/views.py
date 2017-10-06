@@ -8,7 +8,7 @@ import subprocess
 # declare new hdmi_controller instance
 
 hdmi_controller = hdmi_controller.hdmi_controller()
-database_handler = database_handler.database_handler()
+
 
 app.secret_key = 's3cr3t'
 

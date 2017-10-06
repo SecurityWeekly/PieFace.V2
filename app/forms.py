@@ -1,7 +1,7 @@
 from flask_wtf import Form
 from wtforms import TextField, IntegerField, TextAreaField, SubmitField, RadioField, SelectField, BooleanField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
-from database_handler_sqlalc import *
+from database_handler import *
 from dbTester import *
 
 # init hdmi_controller class
