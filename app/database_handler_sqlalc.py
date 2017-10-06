@@ -59,7 +59,7 @@ class main():
             a2 = session.query(MediaSets).filter_by(IsActive=0)
             for set in a2:
                 print "ID: " + str(set.ID)  + " Name: " + set.Name + " Res: " + set.Resolution
-            #print a2[0].ID
+
 
 
 '''

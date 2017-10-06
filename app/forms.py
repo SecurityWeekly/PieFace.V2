@@ -1,12 +1,18 @@
 from flask_wtf import Form
 from wtforms import TextField, IntegerField, TextAreaField, SubmitField, RadioField, SelectField, BooleanField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
+from database_handler_sqlalc import *
+from dbTester import *
 
 # init hdmi_controller class
 class ImageSetForm(Form):
-    imageSet = SelectField('ImageSet',
+    
+    Session = sessionmaker(bind=engine)
+    session = Session()
+
+    '''imageSet = SelectField('ImageSet',
                            choices=[('psw', 'PSW'), ('esw', 'ESW'), ('ssw', 'SSW'), ('hnn', 'HNN'), ('sg', 'SG'),
-                                    ('sgshorts', 'SGSHORTS'), ('sgnews', 'SGNEWS'), ('static', 'STATIC')])
+                                    ('sgshorts', 'SGSHORTS'), ('sgnews', 'SGNEWS'), ('static', 'STATIC')])'''
     select = SubmitField("Select Image Set")
     activate = SubmitField("Activate Image Set")
 
@@ -36,4 +42,10 @@ class ImageSetForm(Form):
     output8 = SelectField('Output8',
                           choices=[('', ''), ('input1', 'Input 1'), ('input2', 'Input 2')])
     switch = SubmitField("Submit Output")
+
+    def enabled_categories():
+        Sets = session.query(MediaSets)
+        print(Sets)
+        return Sets
     
+    imageSet = QuerySelectField(query_factory=enabled_categories, allow_blank=True, get_label="Name")
