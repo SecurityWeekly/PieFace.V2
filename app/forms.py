@@ -2,7 +2,7 @@ from flask_wtf import Form
 from wtforms import TextField, IntegerField, TextAreaField, SubmitField, RadioField, SelectField, BooleanField
 from wtforms.ext.sqlalchemy.fields import QuerySelectField
 
-
+# init hdmi_controller class
 class ImageSetForm(Form):
     imageSet = SelectField('ImageSet',
                            choices=[('psw', 'PSW'), ('esw', 'ESW'), ('ssw', 'SSW'), ('hnn', 'HNN'), ('sg', 'SG'),
@@ -15,6 +15,9 @@ class ImageSetForm(Form):
     pauseTime = TextField("Pause Time in Seconds")
     isDefault = BooleanField("Default Image Set:")
     imageType = RadioField("Type", choices=[('image', 'Image'), ('video', 'Video')])
+
+    # hdmi controller class to be used here to get inputs/outputs
+    # set selected item for dropdowns with something like hdmi_controller.outputs['output1']
 
     output1 = SelectField('Output1',
                           choices=[('', ''), ('input1', 'Input 1'), ('input2', 'Input 2')])
