@@ -13,7 +13,7 @@ session = Session()
 
 db = db_functions()
 
-
-db.get_all_media_sets(session)
+#db.get_all_media_sets(session)
+db.insert_media_set(session, name, type, resolution, content, pause, active, default, storage)
 
 connection.close()

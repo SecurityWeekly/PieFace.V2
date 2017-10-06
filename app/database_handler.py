@@ -25,10 +25,10 @@ class MediaSets(Base):
 class db_functions():
         
     
-    def insert_media_set(self, session):
+    def insert_media_set(self, session, name, type, resolution, content, pause, active, default, storage):
         med_set = MediaSets()
         # check to see if media set allready exists
-        if not session.query(exists().where(MediaSets.Name == 'MediaSetPotato')).scalar():
+        if not session.query(exists().where(MediaSets.Name == 'MediaSetPotato6')).scalar():
             med_set.ID = 0
             med_set.Name = "MediaSetPotato"
             med_set.Type = 1
