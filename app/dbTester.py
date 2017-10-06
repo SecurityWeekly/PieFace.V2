@@ -1,5 +1,5 @@
-import database_handler_sqlalc
-from database_handler_sqlalc import main
+import database_handler
+from database_handler import db_functions
 from sqlalchemy import create_engine
 from sqlalchemy.orm import relationship, sessionmaker
 
@@ -9,6 +9,11 @@ connection = engine.connect()
 Session = sessionmaker(bind=engine)
 session = Session()
 
-main().run(session)
+
+
+db = db_functions()
+
+
+db.get_all_media_sets(session)
 
 connection.close()

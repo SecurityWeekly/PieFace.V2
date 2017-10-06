@@ -55,11 +55,11 @@ class main():
 
 
             #   SELECT
-
-            a2 = session.query(MediaSets).filter_by(IsActive=0)
-            for set in a2:
-                print "ID: " + str(set.ID)  + " Name: " + set.Name + " Res: " + set.Resolution
-            #print a2[0].ID
+            if session.query(exists().where(MediaSets.IsActive == 0)).scalar():
+                a2 = session.query(MediaSets).filter_by(IsActive=0)
+                for set in a2:
+                    print "ID: " + str(set.ID)  + " Name: " + set.Name + " Res: " + set.Resolution
+                #print a2[0].ID
 
 
 '''
