@@ -37,7 +37,7 @@ class db_functions():
         med_set = MediaSets()
 
         # this function is good
-        
+
         # check to see if media set allready exists
         if not session.query(exists().where(MediaSets.Name == name)).scalar():
             med_set.ID = 0
@@ -57,33 +57,41 @@ class db_functions():
         else:
             print("That media set allready exists!") 
 
-    def get_all_media_sets(self, session):
-        # this function is good
+    def get_all_media_sets(self):
         
         #to get first row use .first()
-        Sets = session.query(MediaSets)
+        Sets = self.session.query(MediaSets)
         for set in Sets:
             print "ID: " + str(set.ID)  + " Name: " + set.Name + " Res: " + set.Resolution
 
 
-    def update_media_set_by_id(self, session, mid, name, mtype, resolution, content, pause, active, default, storage):
-        if session.query(exists().where(MediaSets.Name == 'MediaSetPotato')).scalar():
-            med_set = session.query(MediaSets).filter_by(Name='MediaSetPotato').first()
-            med_set.Name = "MediaSetPotatoUpdate"
+    def update_media_set_by_id(self, mid, name, mtype, resolution, content, pause, active, default, storage):
+        if self.session.query(exists().where(MediaSets.Name == 'MediaSetPotato')).scalar():
+            med_set = self.session.query(MediaSets).filter_by(Name='MediaSetPotato').first()
+            med_set.Name = name
+            med_set.Type = mtype
+            med_set.Resolution = resolution
+            med_set.Content = content
+            med_set.DateCreated = datetime.now()
+            med_set.PauseTime = pause
+            med_set.IsActive = active
+            med_set.IsDefault = default
+            med_set.StorageLocation = storage
+
             session.commit()
 
 
-    def delete_media_set(self, session):
-        if session.query(exists().where(MediaSets.Name == 'MediaSetPotato')).scalar():
-            session.query(MediaSets).filter_by(Name='MediaSetPotato').delete()
-            session.commit()
+    def delete_media_set(self):
+        if self.session.query(exists().where(MediaSets.Name == 'MediaSetPotato')).scalar():
+            self.session.query(MediaSets).filter_by(Name='MediaSetPotato').delete()
+            self.session.commit()
         
-    def get_media_set_by_id(self, session, mid):
-        if session.query(exists().where(MediaSets.ID == mid)).scalar():
-            med_set = session.query(MediaSets).filter_by(ID=mid).first()
+    def get_media_set_by_id(self, mid):
+        if self.session.query(exists().where(MediaSets.ID == mid)).scalar():
+            med_set = self.session.query(MediaSets).filter_by(ID=mid).first()
             return med_set
 
-    def enabled_categories(self, session):
-        Sets = session.query(MediaSets)
+    def enabled_categories(self):
+        Sets = self.session.query(MediaSets)
         print(Sets)
         return Sets
