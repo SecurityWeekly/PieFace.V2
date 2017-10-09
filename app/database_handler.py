@@ -35,6 +35,9 @@ class db_functions():
     
     def insert_media_set(self, session, name, mtype, resolution, content, pause, active, default, storage):
         med_set = MediaSets()
+
+        # this function is good
+        
         # check to see if media set allready exists
         if not session.query(exists().where(MediaSets.Name == name)).scalar():
             med_set.ID = 0
@@ -55,6 +58,7 @@ class db_functions():
             print("That media set allready exists!") 
 
     def get_all_media_sets(self, session):
+        # this function is good
         
         #to get first row use .first()
         Sets = session.query(MediaSets)
