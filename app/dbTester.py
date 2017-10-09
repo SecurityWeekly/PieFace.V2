@@ -16,7 +16,7 @@ db = db_functions()
 
 name = "MediaSet" + str(randint(1, 100))
 mtype = 0
-content = [{"/home/pieface/goose.mp4", "/home/pieface/goose.mp4"}]
+content = 0
 resolution = "1920x1080"
 pause = randint(1, 1000)
 active = 0
@@ -27,8 +27,8 @@ storage = "/home/goose/potato.mp4"
 
 
 
-#db.get_all_media_sets(session)
-db.insert_media_set(session, name, type, resolution, content, pause, active, default, storage)
+db.get_all_media_sets(session)
+#db.insert_media_set(session, name, mtype, resolution, content, pause, active, default, storage)
 
 connection.close()
 
