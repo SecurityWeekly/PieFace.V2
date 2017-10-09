@@ -1,18 +1,13 @@
 from flask import render_template, request, url_for, redirect, jsonify
 from app import app
+from sqlalchemy import create_engine
 from app.forms import ImageSetForm
 from app import hdmi_controller
 from app import database_handler
 import subprocess
 from database_handler import db_functions, MediaSets
 
-# declare new hdmi_controller instance
-engine = create_engine('mysql+pymysql://sqlusr:Raspberry@LARRY/PieFace')
 
-connection = engine.connect()
-Session = sessionmaker(bind=engine)
-session = Session()
-db = db_functions()
 
 hdmi_controller = hdmi_controller.hdmi_controller()
 

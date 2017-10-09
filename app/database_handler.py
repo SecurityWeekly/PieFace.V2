@@ -4,6 +4,7 @@ from sqlalchemy.ext.declarative import declarative_base
 from sqlalchemy.orm import relationship, sessionmaker
 from sqlalchemy.schema import Column, ForeignKey
 from sqlalchemy.types import Integer, String, LargeBinary, DateTime
+from sqlalchemy import create_engine
 
 
 Base = declarative_base()
@@ -23,6 +24,10 @@ class MediaSets(Base):
     StorageLocation = Column(String, nullable=False)
 
 class db_functions():
+    
+    print("New database instance created!")
+    engine = create_engine('mysql+pymysql://sqlusr:Raspberry@LARRY/PieFace')
+        
     
     def insert_media_set(self, session, name, mtype, resolution, content, pause, active, default, storage):
         med_set = MediaSets()

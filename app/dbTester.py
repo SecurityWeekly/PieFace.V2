@@ -1,18 +1,17 @@
 import database_handler
 from database_handler import db_functions
-from sqlalchemy import create_engine
+
 from sqlalchemy.orm import relationship, sessionmaker
 from random import randint
 
-engine = create_engine('mysql+pymysql://sqlusr:Raspberry@LARRY/PieFace')
-
-connection = engine.connect()
-Session = sessionmaker(bind=engine)
+db = db_functions()
+connection = db.engine.connect()
+Session = sessionmaker(bind=db.engine)
 session = Session()
 
 
 
-db = db_functions()
+
 mid = 1
 name = "MediaSet" + str(randint(1, 100))
 mtype = 0
@@ -31,7 +30,7 @@ storage = "/home/goose/potato.mp4"
 #db.insert_media_set(session, name, mtype, resolution, content, pause, active, default, storage)
 #db.update_media_set_by_id(session, mid, name, mtype, resolution, content, pause, active, default, storage)
 
-print(db.get_media_set_by_id(session, mid)
+print(db.get_media_set_by_id(session, mid))
 
 
 connection.close()
