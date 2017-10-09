@@ -23,7 +23,6 @@ class MediaSets(Base):
     StorageLocation = Column(String, nullable=False)
 
 class db_functions():
-        
     
     def insert_media_set(self, session, name, mtype, resolution, content, pause, active, default, storage):
         med_set = MediaSets()

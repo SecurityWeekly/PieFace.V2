@@ -34,6 +34,5 @@ storage = "/home/goose/potato.mp4"
 print(db.get_media_set_by_id(session, mid)
 
 
-
 connection.close()
 

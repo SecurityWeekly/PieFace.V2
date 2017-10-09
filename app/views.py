@@ -4,9 +4,15 @@ from app.forms import ImageSetForm
 from app import hdmi_controller
 from app import database_handler
 import subprocess
-from database_handler
+from database_handler import db_functions, MediaSets
 
 # declare new hdmi_controller instance
+engine = create_engine('mysql+pymysql://sqlusr:Raspberry@LARRY/PieFace')
+
+connection = engine.connect()
+Session = sessionmaker(bind=engine)
+session = Session()
+db = db_functions()
 
 hdmi_controller = hdmi_controller.hdmi_controller()
 
@@ -26,8 +32,8 @@ def index():
     version = '0.1'
     current_image = "NONE"
     selectedSet = "No Set Selected Yet"
-    test = 
-    imageset_form = ImageSetForm()
+    test = db.get_media_set_by_id(session, 1)
+    imageset_form = ImageSetForm(test)
 
     # imgchange_status = hdmi_controller.display_output_status
 
