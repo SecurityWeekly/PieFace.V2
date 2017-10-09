@@ -13,7 +13,7 @@ class MediaSets(Base):
     __tablename__ = 'MediaSets'
     ID = Column(Integer, primary_key=True)
     Name = Column(String, nullable=False)
-    Type = Column(Integer, nullable=False, unique=True)
+    Type = Column(Integer, nullable=False)
     Resolution = Column(String, nullable=False)
     Content = Column(LargeBinary, nullable=False)
     DateCreated = Column(DateTime, nullable=False)
@@ -54,10 +54,10 @@ class db_functions():
             print "ID: " + str(set.ID)  + " Name: " + set.Name + " Res: " + set.Resolution
 
 
-    def update_media_set_name(self, session):
+    def update_media_set_by_id(self, session, mid, name, mtype, resolution, content, pause, active, default, storage):
         if session.query(exists().where(MediaSets.Name == 'MediaSetPotato')).scalar():
-            sets = session.query(MediaSets).filter_by(Name='MediaSetPotato').first()
-            sets.Name = "MediaSetPotatoUpdate"
+            med_set = session.query(MediaSets).filter_by(Name='MediaSetPotato').first()
+            med_set.Name = "MediaSetPotatoUpdate"
             session.commit()
 
 
@@ -66,3 +66,7 @@ class db_functions():
             session.query(MediaSets).filter_by(Name='MediaSetPotato').delete()
             session.commit()
         
+    def get_media_set_by_id(self, session, mid):
+        if session.query(exists().where(MediaSets.ID == mid)).scalar():
+            med_set = session.query(MediaSets).filter_by(ID=mid).first()
+            return med_set
