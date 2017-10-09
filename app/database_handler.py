@@ -25,8 +25,12 @@ class MediaSets(Base):
 
 class db_functions():
     
+
     print("New database instance created!")
     engine = create_engine('mysql+pymysql://sqlusr:Raspberry@LARRY/PieFace')
+    connection = engine.connect()
+    Session = sessionmaker(bind=engine)
+    session = Session()
         
     
     def insert_media_set(self, session, name, mtype, resolution, content, pause, active, default, storage):
@@ -74,3 +78,8 @@ class db_functions():
         if session.query(exists().where(MediaSets.ID == mid)).scalar():
             med_set = session.query(MediaSets).filter_by(ID=mid).first()
             return med_set
+
+    def enabled_categories(self, session):
+        Sets = session.query(MediaSets)
+        print(Sets)
+        return Sets

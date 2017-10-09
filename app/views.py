@@ -5,14 +5,11 @@ from app.forms import ImageSetForm
 from app import hdmi_controller
 from app import database_handler
 import subprocess
-from database_handler import db_functions, MediaSets
-
-
+from database_handler import db_functions, MediaSets, sessionmaker
 
 hdmi_controller = hdmi_controller.hdmi_controller()
-
-
 app.secret_key = 's3cr3t'
+db = db_functions()
 
 
 @app.route('/displayoutputstatus')
@@ -27,8 +24,8 @@ def index():
     version = '0.1'
     current_image = "NONE"
     selectedSet = "No Set Selected Yet"
-    test = db.get_media_set_by_id(session, 1)
-    imageset_form = ImageSetForm(test)
+    test = db.get_media_set_by_id(db.session, 1)
+    imageset_form = ImageSetForm(obj=test)
 
     # imgchange_status = hdmi_controller.display_output_status
 
@@ -41,9 +38,6 @@ def index():
             print("i clicked on form2 submit!")
 
             print(database_handler.select_all())
-
-
-
 
         else:
             print("alex is a peice of shit")
