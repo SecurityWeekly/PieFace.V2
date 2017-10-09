@@ -25,20 +25,20 @@ class MediaSets(Base):
 class db_functions():
         
     
-    def insert_media_set(self, session):
+    def insert_media_set(self, session, name, mtype, resolution, content, pause, active, default, storage):
         med_set = MediaSets()
         # check to see if media set allready exists
-        if not session.query(exists().where(MediaSets.Name == 'MediaSetPotato')).scalar():
+        if not session.query(exists().where(MediaSets.Name == name)).scalar():
             med_set.ID = 0
-            med_set.Name = "MediaSetPotato"
-            med_set.Type = 1
-            med_set.Resolution = "1024x720"
-            med_set.Content = "Column(Blob, nullable=False)"
+            med_set.Name = name
+            med_set.Type = mtype
+            med_set.Resolution = resolution
+            med_set.Content = content
             med_set.DateCreated = datetime.now()
-            med_set.PauseTime = 698
-            med_set.IsActive = 0
-            med_set.IsDefault = 0
-            med_set.StorageLocation = "/yourmom.mpg"
+            med_set.PauseTime = pause
+            med_set.IsActive = active
+            med_set.IsDefault = default
+            med_set.StorageLocation = storage
 
                     
             session.add(med_set)

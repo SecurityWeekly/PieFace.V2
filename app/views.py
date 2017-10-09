@@ -4,6 +4,7 @@ from app.forms import ImageSetForm
 from app import hdmi_controller
 from app import database_handler
 import subprocess
+from database_handler
 
 # declare new hdmi_controller instance
 
@@ -25,6 +26,7 @@ def index():
     version = '0.1'
     current_image = "NONE"
     selectedSet = "No Set Selected Yet"
+    test = 
     imageset_form = ImageSetForm()
 
     # imgchange_status = hdmi_controller.display_output_status
