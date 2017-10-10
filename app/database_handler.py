@@ -59,15 +59,13 @@ class db_functions():
 
     def get_all_media_sets(self):
         
-        #to get first row use .first()
         Sets = self.session.query(MediaSets)
         for set in Sets:
             print "ID: " + str(set.ID)  + " Name: " + set.Name + " Res: " + set.Resolution
 
-
     def update_media_set_by_id(self, mid, name, mtype, resolution, content, pause, active, default, storage):
-        if self.session.query(exists().where(MediaSets.Name == 'MediaSetPotato')).scalar():
-            med_set = self.session.query(MediaSets).filter_by(Name='MediaSetPotato').first()
+        if self.session.query(exists().where(MediaSets.ID == mid)).scalar():
+            med_set = self.session.query(MediaSets).filter_by(ID=mid).first()
             med_set.Name = name
             med_set.Type = mtype
             med_set.Resolution = resolution
@@ -78,12 +76,13 @@ class db_functions():
             med_set.IsDefault = default
             med_set.StorageLocation = storage
 
-            session.commit()
+            self.session.commit()
+            return True
 
 
-    def delete_media_set(self):
-        if self.session.query(exists().where(MediaSets.Name == 'MediaSetPotato')).scalar():
-            self.session.query(MediaSets).filter_by(Name='MediaSetPotato').delete()
+    def delete_media_set_by_id(self, mid):
+        if self.session.query(exists().where(MediaSets.ID == mid)).scalar():
+            self.session.query(MediaSets).filter_by(ID=mid).delete()
             self.session.commit()
         
     def get_media_set_by_id(self, mid):

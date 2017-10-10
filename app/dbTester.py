@@ -6,7 +6,7 @@ from random import randint
 
 
 
-mid = 1
+mid = 5
 name = "MediaSet" + str(randint(1, 100))
 mtype = 0
 content = 0
@@ -20,4 +20,6 @@ storage = "/home/goose/potato.mp4"
 
 db = db_functions()
 
-print(db.get_all_media_sets())
+
+
+
