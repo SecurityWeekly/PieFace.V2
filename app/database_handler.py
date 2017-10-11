@@ -15,7 +15,8 @@ class MediaSets(Base):
     ID = Column(Integer, primary_key=True)
     Name = Column(String, nullable=False)
     Type = Column(Integer, nullable=False)
-    Resolution = Column(String, nullable=False)
+    ResW = Column(Integer, nullable=False)
+    ResH = Column(Integer, nullable=False)
     Content = Column(LargeBinary, nullable=False)
     DateCreated = Column(DateTime, nullable=False)
     PauseTime = Column(Integer, nullable=False)
@@ -33,7 +34,7 @@ class db_functions():
     session = Session()
         
     
-    def insert_media_set(self, session, name, mtype, resolution, content, pause, active, default, storage):
+    def insert_media_set(self, session, name, mtype, resw, resh, content, pause, active, default, storage):
         med_set = MediaSets()
 
         # this function is good
@@ -43,7 +44,8 @@ class db_functions():
             med_set.ID = 0
             med_set.Name = name
             med_set.Type = mtype
-            med_set.Resolution = resolution
+            med_set.ResW = resw
+            med_set.ResH = resh
             med_set.Content = content
             med_set.DateCreated = datetime.now()
             med_set.PauseTime = pause
@@ -92,4 +94,5 @@ class db_functions():
 
     def enabled_categories(self):
         Sets = self.session.query(MediaSets)
+        #print(Sets)
         return Sets
