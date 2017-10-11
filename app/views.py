@@ -14,7 +14,7 @@ db = db_functions()
 
 @app.route('/displayoutputstatus')
 def potato():
-    print("Displaying output status")
+    #("Displaying output status")
     return True
 
 
@@ -34,17 +34,17 @@ def index():
     if request.method == 'POST':
 
         if 'imageSet' in request.form:
-            print("i clicked on form 1 submit!")
+            #print("i clicked on form 1 submit!")
         elif 'output7' in request.form:
-            print("i clicked on form2 submit!")
+            #print("i clicked on form2 submit!")
 
         else:
-            print("alex is a peice of shit")
+            #print("alex is a peice of shit")
 
 
         if imageset_form.validate():
-            print("activate button was pressed : {value}".format(value=imageset_form.activate.data))
-            print("select button was pressed : {value}".format(value=imageset_form.select.data))
+            #print("activate button was pressed : {value}".format(value=imageset_form.activate.data))
+            #print("select button was pressed : {value}".format(value=imageset_form.select.data))
 
         if imageset_form.activate.data == True:
             activeSet = request.form['imageSet']

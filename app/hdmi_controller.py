@@ -50,11 +50,11 @@ class hdmi_controller:
     # constructors
     def __init__(self):
         # default constructor
-        print("New instance of hdmi_controller has been created")
+        #print("New instance of hdmi_controller has been created")
 
     def get_outputs(self):
         tn = telnetlib.Telnet(self.HOST, self.TCP_PORT)
-        print("Read HDMI Input Link States by sending: ")
+        #print("Read HDMI Input Link States by sending: ")
         # Write the command to read the input link states
         # tn.write(read_code['input_link_states'])
 
@@ -70,7 +70,7 @@ class hdmi_controller:
         data = str(data).strip()
         new_data = data.split("[")
 
-        print(data)
+        #print(data)
         for i in range(1, len(new_data)):
             self.outputs['output_' + str(i)] = new_data[i][1]
 
@@ -86,8 +86,8 @@ class hdmi_controller:
 
         data = tn.read_until(b'\n')
         data = tn.read_until(b'\n')
-        print(str(data))
+        #print(str(data))
 
-        print(str(data).find("[N]"))
+        #print(str(data).find("[N]"))
 
         tn.close()

@@ -27,7 +27,7 @@ class MediaSets(Base):
 class db_functions():
     
 
-    print("New database instance created!")
+    #print("New database instance created!")
     engine = create_engine('mysql+pymysql://sqlusr:Raspberry@LARRY/PieFace')
     connection = engine.connect()
     Session = sessionmaker(bind=engine)
@@ -56,7 +56,7 @@ class db_functions():
             session.add(med_set)
             session.commit()
         else:
-            print("That media set allready exists!") 
+            print("That media set already exists!") 
 
     def get_all_media_sets(self):
         
