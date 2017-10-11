@@ -63,14 +63,15 @@ class db_functions():
         
         Sets = self.session.query(MediaSets)
         for set in Sets:
-            print "ID: " + str(set.ID)  + " Name: " + set.Name + " Res: " + set.Resolution
+            #print "ID: " + str(set.ID)  + " Name: " + set.Name + " Res: " + set.Resolution
 
     def update_media_set_by_id(self, mid, name, mtype, resolution, content, pause, active, default, storage):
         if self.session.query(exists().where(MediaSets.ID == mid)).scalar():
             med_set = self.session.query(MediaSets).filter_by(ID=mid).first()
             med_set.Name = name
             med_set.Type = mtype
-            med_set.Resolution = resolution
+            med_set.ResW = resw
+            med_set.ResH = resh
             med_set.Content = content
             med_set.DateCreated = datetime.now()
             med_set.PauseTime = pause
