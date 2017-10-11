@@ -34,7 +34,7 @@ class db_functions():
     session = Session()
         
     
-    def insert_media_set(self, session, name, mtype, resw, resh, content, pause, active, default, storage):
+    def insert_media_set(self, session, name, mtype, ResW, ResH, content, pause, active, default, storage):
         med_set = MediaSets()
 
         # this function is good
@@ -44,8 +44,8 @@ class db_functions():
             med_set.ID = 0
             med_set.Name = name
             med_set.Type = mtype
-            med_set.ResW = resw
-            med_set.ResH = resh
+            med_set.ResW = ResW
+            med_set.ResH = ResH
             med_set.Content = content
             med_set.DateCreated = datetime.now()
             med_set.PauseTime = pause
@@ -63,14 +63,15 @@ class db_functions():
         
         Sets = self.session.query(MediaSets)
         for set in Sets:
-            print "ID: " + str(set.ID)  + " Name: " + set.Name + " Res: " + set.Resolution
+            print "ID: " + str(set.ID)  + " Name: " + set.Name + " Width: " + str(set.ResW) + " Height: " + str(set.ResH)
 
-    def update_media_set_by_id(self, mid, name, mtype, resolution, content, pause, active, default, storage):
+    def update_media_set_by_id(self, mid, name, mtype, ResW, ResH, content, pause, active, default, storage):
         if self.session.query(exists().where(MediaSets.ID == mid)).scalar():
             med_set = self.session.query(MediaSets).filter_by(ID=mid).first()
             med_set.Name = name
             med_set.Type = mtype
-            med_set.Resolution = resolution
+            med_set.ResW = ResW
+            med_set.ResH = ResH
             med_set.Content = content
             med_set.DateCreated = datetime.now()
             med_set.PauseTime = pause

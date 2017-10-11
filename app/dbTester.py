@@ -20,7 +20,7 @@ storage = "/home/goose/potato.mp4"
 
 db = db_functions()
 
-db.insert_media_set()
+db.get_all_media_sets()
 
 
 
