@@ -16,7 +16,7 @@ class ImageSetForm(Form):
 
     resWidth = TextField("resWidth")
     resHeight = TextField("resHeight")
-    pauseTime = TextField("Pause Time in Seconds")
+    PauseTime = TextField("Pause Time in Seconds")
     isDefault = BooleanField("Default Image Set:")
     imageType = RadioField("Type", choices=[('image', 'Image'), ('video', 'Video')])
 

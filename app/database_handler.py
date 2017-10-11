@@ -92,5 +92,4 @@ class db_functions():
 
     def enabled_categories(self):
         Sets = self.session.query(MediaSets)
-        print(Sets)
         return Sets
