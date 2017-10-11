@@ -52,7 +52,6 @@ class db_functions():
             med_set.IsActive = active
             med_set.IsDefault = default
             med_set.StorageLocation = storage
-
                     
             session.add(med_set)
             session.commit()
@@ -81,6 +80,8 @@ class db_functions():
 
             self.session.commit()
             return True
+        else:
+            return False
 
 
     def delete_media_set_by_id(self, mid):
