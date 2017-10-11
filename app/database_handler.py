@@ -97,3 +97,4 @@ class db_functions():
         Sets = self.session.query(MediaSets)
         #print(Sets)
         return Sets
+ 
