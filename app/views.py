@@ -25,8 +25,8 @@ def index():
     current_image = "NONE"
     selectedSet = "No Set Selected Yet"
 
-    test = db.get_media_set_by_id(1)
-    imageset_form = ImageSetForm(PauseTime=test.ID)
+    test = db.get_media_set_by_id(selectedSet)
+    imageset_form = ImageSetForm(obj=test)
 
     # imgchange_status = hdmi_controller.display_output_status
 

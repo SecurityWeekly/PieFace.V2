@@ -14,8 +14,8 @@ class ImageSetForm(Form):
     select = SubmitField("Select Image Set")
     activate = SubmitField("Activate Image Set")
 
-    resWidth = TextField("resWidth")
-    resHeight = TextField("resHeight")
+    ResW = TextField("resWidth")
+    ResH = TextField("resHeight")
     PauseTime = TextField("Pause Time in Seconds")
     isDefault = BooleanField("Default Image Set:")
     imageType = RadioField("Type", choices=[('image', 'Image'), ('video', 'Video')])
