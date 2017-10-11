@@ -24,8 +24,9 @@ def index():
     version = '0.1'
     current_image = "NONE"
     selectedSet = "No Set Selected Yet"
-    test = db.get_media_set_by_id(db.session, 1)
-    imageset_form = ImageSetForm(obj=test)
+
+    test = db.get_media_set_by_id(1)
+    imageset_form = ImageSetForm(resWidth=test.ID)
 
     # imgchange_status = hdmi_controller.display_output_status
 
@@ -37,15 +38,9 @@ def index():
         elif 'output7' in request.form:
             print("i clicked on form2 submit!")
 
-            print(database_handler.select_all())
-
         else:
             print("alex is a peice of shit")
 
-        # selectedSet = database_handler.select_all()
-        # output = get_output_input()
-
-        # print(output)
 
         if imageset_form.validate():
             print("activate button was pressed : {value}".format(value=imageset_form.activate.data))

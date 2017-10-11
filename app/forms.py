@@ -43,4 +43,4 @@ class ImageSetForm(Form):
 
     
     
-    imageSet = QuerySelectField(query_factory=db.enabled_categories(db.session), allow_blank=True, get_label="Name")
+    imageSet = QuerySelectField(query_factory=db.enabled_categories(), allow_blank=True, get_label="Name")
