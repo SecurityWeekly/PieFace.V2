@@ -40,5 +40,8 @@ Thumbs.db
 # Directorys #
 ##############
 
+/venv/
+/.idea/
+/.vscode/
 
  
