@@ -9,14 +9,14 @@
 <nav class="navbar navbar-default">
     <div class="container-fluid">
         <div class="navbar-header">
-            <a class="navbar-brand" href="#">PieFace</a>
+            <a class="navbar-brand" href="./">PieFace</a>
         </div>
         <ul class="nav navbar-nav">
             <li class="active">
-                <a href="#">Home</a>
+                <a href="./">Home</a>
             </li>
             <li>
-                <a href="#">HDMI Control</a>
+                <a href="./hdmi_control">HDMI Control</a>
             </li>
         </ul>
     </div>
@@ -202,106 +202,6 @@
         <!--</form>-->
         <!--</table>-->
 
-        <form method="post" name="form2" class="form-horizontal ">
-
-
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="output1" class="col-lg-2 control-label">OUTPUT 1 (PSW TV #1)</label>
-                    <div class="col-lg-10">
-                        {{imageset_form.output1(class_="form-control", id_="output1")}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="output2" class="col-lg-2 control-label">OUTPUT 2 (PSW TV #2)</label>
-                    <div class="col-lg-10">
-                        {{imageset_form.output2(class_="form-control", id_="output2")}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="output3" class="col-lg-2 control-label">OUTPUT 3 (Stogie Geeks TV)</label>
-                    <div class="col-lg-10">
-                        {{imageset_form.output3(class_="form-control", id_="output3")}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="output4" class="col-lg-2 control-label">OUTPUT 4 (News Desk TV)</label>
-                    <div class="col-lg-10">
-                        {{imageset_form.output4(class_="form-control", id_="output4")}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="output5" class="col-lg-2 control-label">OUTPUT 5 (Studio Monitor Monitor)</label>
-                    <div class="col-lg-10">
-                        {{imageset_form.output5(class_="form-control", id_="output5")}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="output6" class="col-lg-2 control-label">OUTPUT 6</label>
-                    <div class="col-lg-10">
-                        {{imageset_form.output6(class_="form-control", id_="output6")}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="output7" class="col-lg-2 control-label">OUTPUT 7</label>
-                    <div class="col-lg-10">
-                        {{imageset_form.output7(class_="form-control", id_="output7")}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="form-group">
-                    <label for="output8" class="col-lg-2 control-label">OUTPUT 8</label>
-                    <div class="col-lg-10">
-                        {{imageset_form.output8(class_="form-control", id_="output8")}}
-                    </div>
-                </div>
-            </div>
-
-            <div class="form-group">
-                <div class="col-lg-2"></div>
-                <div class="col-lg-10">
-                    {{imageset_form.switch(class_="btn btn-default")}}
-                </div>
-            </div>
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-        </form>
-
-        Status Message:
-        <pre> {{ hdmichange_status }} </pre>
-    </p>
     </p>
 </body>
 

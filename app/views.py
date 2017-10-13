@@ -12,10 +12,12 @@ app.secret_key = 's3cr3t'
 db = db_functions()
 
 
-@app.route('/displayoutputstatus')
+@app.route('/hdmi_control')
 def potato():
-    print("Displaying output status")
-    return True
+    return render_template('hdmi_control.html',
+                           title='PieFace',
+                           version=2.0,
+                           style="/static/css/bootstrap.css")
 
 
 @app.route('/imgset/<medid>')

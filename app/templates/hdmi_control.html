@@ -1,0 +1,121 @@
+<html>
+
+<head>
+
+    <title>{{ title }} - Paul Asadoorian</title>
+    <link href="{{ style }}" rel="stylesheet" type="text/css" />
+</head>
+
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="./">PieFace</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li>
+                <a href="./">Home</a>
+            </li>
+            <li>
+                <a href="./hdmi_control" class="active">HDMI Control</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
+<body>
+
+    <h1>Welcome to Pieface version {{ version }}!</h1>
+
+
+
+    <form method="post" name="form2" class="form-horizontal ">
+
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="output1" class="col-lg-2 control-label">OUTPUT 1 (PSW TV #1)</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="output1">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="output2" class="col-lg-2 control-label">OUTPUT 2 (PSW TV #2)</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="output2">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="output3" class="col-lg-2 control-label">OUTPUT 3 (Stogie Geeks TV)</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="output3">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="output4" class="col-lg-2 control-label">OUTPUT 4 (News Desk TV)</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="output4">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="output5" class="col-lg-2 control-label">OUTPUT 5 (Studio Monitor Monitor)</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="output5">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="output6" class="col-lg-2 control-label">OUTPUT 6</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="output6">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="output7" class="col-lg-2 control-label">OUTPUT 7</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="output7">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="form-group">
+                <label for="output8" class="col-lg-2 control-label">OUTPUT 8</label>
+                <div class="col-lg-10">
+                    <select class="form-control" id="output8">
+                </div>
+            </div>
+        </div>
+
+        <div class="form-group">
+            <div class="col-lg-10 col-lg-offset-2">
+                <button type="reset" class="btn btn-default">Cancel</button>
+                <button type="submit" class="btn btn-primary">Submit</button>
+            </div>
+        </div>
+
+
+    </form>
+
+    Status Message:
+    <pre> {{ hdmichange_status }} </pre>
+
+</body>
+
+</html>
