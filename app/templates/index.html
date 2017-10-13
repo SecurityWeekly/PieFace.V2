@@ -6,6 +6,22 @@
     <link href="{{ style }}" rel="stylesheet" type="text/css" />
 </head>
 
+<nav class="navbar navbar-default">
+    <div class="container-fluid">
+        <div class="navbar-header">
+            <a class="navbar-brand" href="#">PieFace</a>
+        </div>
+        <ul class="nav navbar-nav">
+            <li class="active">
+                <a href="#">Home</a>
+            </li>
+            <li>
+                <a href="#">HDMI Control</a>
+            </li>
+        </ul>
+    </div>
+</nav>
+
 <body>
 
     <h1>Welcome to Pieface version {{ version }}!</h1>
@@ -48,42 +64,7 @@
                     <td>{{MediaSet.IsActive}}</td>
                     <td>{{MediaSet.IsDefault}}</td>
                     <td>{{MediaSet.StorageLocation}}</td>
-<<<<<<< HEAD
             </tr>
-=======
-                </tr>
-    
-                  {% endfor %}
-
-                </tbody>
-              </table>
-
-
-            <p> {{ selected }}
-            </p>
-
-            <button type="button" class="btn btn-default">Upload Image</button>
-            <br>
-
-            <img src="{{ url_for('static',filename='images/download1.jpg')}}" />
-            <img src="../download2.png" alt="Download 2" style="width:100px;height:100px;" />
-            <img src="../download3.jpg" alt="Download 3" style="width:100px;height:100px;" />
-            <br>
-
-            <p>
-
-                <form method="post" name="form2" class="form-horizontal ">
-
-
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="output1" class="col-lg-2 control-label">OUTPUT 1 (PSW TV #1)</label>
-                            <div class="col-lg-10">
-                                {{imageset_form.output1(class_="form-control", id_="output1")}}
-                            </div>
-                        </div>
-                    </div>
->>>>>>> 25e35c7d38225bd4740a29b0000a8c3574df2f82
 
             {% endfor %}
 
