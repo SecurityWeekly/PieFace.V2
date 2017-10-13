@@ -19,6 +19,8 @@ class ImageSetForm(Form):
     PauseTime = TextField("Pause Time in Seconds")
     isDefault = BooleanField("Default Image Set:")
     imageType = RadioField("Type", choices=[('image', 'Image'), ('video', 'Video')])
+    submit = SubmitField("Submit")
+    cancel = SubmitField("Cancel")
 
     # hdmi controller class to be used here to get inputs/outputs
     # set selected item for dropdowns with something like hdmi_controller.outputs['output1']
