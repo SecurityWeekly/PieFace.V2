@@ -13,6 +13,8 @@ class ImageSetForm(Form):
                                     ('sgshorts', 'SGSHORTS'), ('sgnews', 'SGNEWS'), ('static', 'STATIC')])'''
     select = SubmitField("Select Image Set")
     activate = SubmitField("Activate Image Set")
+    submit = SubmitField("Submit")
+    cancel = SubmitField("Cancel")
 
     ResW = TextField("resWidth")
     ResH = TextField("resHeight")
