@@ -31,7 +31,7 @@ def index():
     current_image = "NONE"
     selectedSet = "No Set Selected Yet"
     imageset_form = ImageSetForm()
-    
+
     # imgchange_status = hdmi_controller.display_output_status
 
     # Coll
@@ -71,6 +71,7 @@ def index():
                            active=activeSet.upper(),
                            version=1.0,
                            selected=selectedSet,
+                           db= db,
                            hdmichange_status="hdmi_controller.get_hdmi_status",
                            imgchange_status="hdmi_controller.display_output_status()",
                            style="/static/css/bootstrap.css")

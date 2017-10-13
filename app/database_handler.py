@@ -62,8 +62,7 @@ class db_functions():
     def get_all_media_sets(self):
         
         Sets = self.session.query(MediaSets)
-        for set in Sets:
-            print "ID: " + str(set.ID)  + " Name: " + set.Name + " Width: " + str(set.ResW) + " Height: " + str(set.ResH)
+        return Sets
 
     def update_media_set_by_id(self, mid, name, mtype, ResW, ResH, content, pause, active, default, storage):
         if self.session.query(exists().where(MediaSets.ID == mid)).scalar():

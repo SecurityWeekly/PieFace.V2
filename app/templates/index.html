@@ -14,90 +14,45 @@
     <p> Active Image Set {{ active }}
         <p>
 
-            Choose your images wisely:
-            <form method="post" name="form1" class="form-horizontal">
-                <fieldset>
-                    <legend>Legend</legend>
+            <table class="table">
+                <thead>
+                  <tr>
+                    <th>Action</th>
+                    <th>ID</th>
+                    <th>Media Set Name</th>
+                    <th>Resolution Width</th>
+                    <th>Resolution Height</th>
+                    <th>Media Content</th>
+                    <th>Date Created</th>
+                    <th>Pause Time</th>
+                    <th>Is Active</th>
+                    <th>Is Default</th>
+                    <th>Storage Location</th>
+                  </tr>
+                </thead>
+                <tbody>
 
-                    <div class="form-group">
-                        <label for="select" class="col-lg-2 control-label">Selects</label>
-                        <div class="col-lg-10">
-                            {{imageset_form.imageSet(class_="form-control")}}
-                        </div>
-                    </div>
+                  {% for MediaSet in db.get_all_media_sets() %}
+                  <tr>
+                    <td><a href="/medset/{{MediaSet.ID}}/edit">Edit</a> <a href="/medset/{{MediaSet.ID}}/delete">Delete</a></th>
+                    <td>{{MediaSet.ID}}</td>
+                    <td>{{MediaSet.Name}}</td>
+                    <td>{{MediaSet.ResW}}</td>
+                    <td>{{MediaSet.ResH}}</td>
+                    <td>{{MediaSet.Content}}</td>
+                    <td>{{MediaSet.DateCreated}}</td>
+                    <td>{{MediaSet.PauseTime}}</td>
+                    <td>{{MediaSet.IsActive}}</td>
+                    <td>{{MediaSet.IsDefault}}</td>
+                    <td>{{MediaSet.StorageLocation}}</td>
+                </tr>
+    
+                  {% endfor %}
 
-
-                    <br>
-
-                    <div class="form-group">
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-10">
-                            {{imageset_form.activate(class_="btn btn-default")}} {{imageset_form.select(class_="btn btn-primary")}}
-                        </div>
-                    </div>
-
-                    <br> {{imageset_form.addSet}}
-
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="imageSetWidth" class="col-lg-2 control-label">Resolution Width</label>
-                            <div class="col-lg-10">
-                                {{imageset_form.ResW(class_="form-control col-lg-10", id_="imageSetWidth")}}
-                            </div>
-                        </div>
-                    </div>
-
-
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="imageSetHeight" class="col-lg-2 control-label">Resolution Height</label>
-                            <div class="col-lg-10">
-                                {{imageset_form.ResH(class_="form-control", id_="imageSetHeight")}}
-                            </div>
-                        </div>
-                    </div>
-
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="pauseTime" class="col-lg-2 control-label">Pause Time (Seconds)</label>
-                            <div class="col-lg-10">
-                                {{imageset_form.PauseTime(class_="form-control", id_="pauseTime")}}
-                                
-                            </div>
-                        </div>
-                    </div>
+                </tbody>
+              </table>
 
 
-
-
-
-                    <div class="form-group">
-                        <label class="col-lg-2 control-label">Default Image</label>
-                        <div class="col-lg-10">
-                            <div class="radio">
-
-                                {{imageset_form.isDefault}}
-
-                            </div>
-                        </div>
-                    </div>
-
-
-
-
-                    <div class="form-group">
-                        <label class="col-lg-2 control-label">{{imageset_form.imageType.label}}</label>
-                        <div class="col-lg-10">
-                            <div class="radio">
-                                {{imageset_form.imageType}}
-                            </div>
-                        </div>
-                    </div>
-                    <br><br><br><br>
-
-                    </div>
-                </fieldset>
-            </form>
             <p> {{ selected }}
             </p>
 
