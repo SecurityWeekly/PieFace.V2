@@ -20,8 +20,11 @@ def potato():
 
 @app.route('/imgset/<medid>')
 def shit(medid):
-    print("MED ID" + medid)
-    return "your mom"
+    return render_template('edit.html',
+                           title='PieFace',
+                           version=2.0,
+                           selectedMediaSet=db.get_media_set_by_id(medid),
+                           style="/static/css/bootstrap.css")
     
 
 @app.route('/', methods=['POST', 'GET'])
@@ -69,7 +72,7 @@ def index():
                            imageset_form=imageset_form,
                            title='PieFace',
                            active=activeSet.upper(),
-                           version=1.0,
+                           version=2.0,
                            selected=selectedSet,
                            db= db,
                            hdmichange_status="hdmi_controller.get_hdmi_status",
