@@ -20,13 +20,26 @@ def potato():
                            style="/static/css/bootstrap.css")
 
 
-@app.route('/imgset/<medid>')
-def shit(medid):
-    return render_template('edit.html',
+@app.route('/medset/<medid>/<action>')
+def shit(medid, action):
+    
+    if (action == "edit"):
+        return render_template('edit.html',
                            title='PieFace',
                            version=2.0,
                            selectedMediaSet=db.get_media_set_by_id(medid),
                            style="/static/css/bootstrap.css")
+    elif (action == "delete"):
+        return render_template('delete.html',
+                           title='PieFace',
+                           version=2.0,
+                           mediasetId=medid,
+                           style="/static/css/bootstrap.css")
+        
+
+
+
+    
     
 
 @app.route('/', methods=['POST', 'GET'])
