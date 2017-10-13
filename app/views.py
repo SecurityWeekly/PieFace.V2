@@ -18,20 +18,34 @@ def potato():
     return True
 
 
+@app.route('/imgset/<medid>')
+def shit(medid):
+    print("MED ID" + medid)
+    return "your mom"
+    
+
 @app.route('/', methods=['POST', 'GET'])
 def index():
     activeSet = "Not Here"
     version = '0.1'
     current_image = "NONE"
     selectedSet = "No Set Selected Yet"
-
-    test = db.get_media_set_by_id(selectedSet)
-    imageset_form = ImageSetForm(obj=test)
-
+    imageset_form = ImageSetForm()
+    
     # imgchange_status = hdmi_controller.display_output_status
 
     # Coll
     if request.method == 'POST':
+
+        test = db.get_media_set_by_id(selectedSet)
+        imageset_form = ImageSetForm(obj=test)
+    
+        imageset_form.populate_obj(test)
+
+
+        
+
+
 
         if 'imageSet' in request.form:
             print("i clicked on form 1 submit!")
@@ -40,7 +54,6 @@ def index():
 
         else:
             print("alex is a peice of shit")
-
 
         if imageset_form.validate():
             print("activate button was pressed : {value}".format(value=imageset_form.activate.data))
