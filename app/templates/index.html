@@ -9,32 +9,35 @@
 <body>
 
     <h1>Welcome to Pieface version {{ version }}!</h1>
-    </p>
+
 
     <p> Active Image Set {{ active }}
-        <p>
+    </p>
 
-            <table class="table">
-                <thead>
-                  <tr>
-                    <th>Action</th>
-                    <th>ID</th>
-                    <th>Media Set Name</th>
-                    <th>Resolution Width</th>
-                    <th>Resolution Height</th>
-                    <th>Media Content</th>
-                    <th>Date Created</th>
-                    <th>Pause Time</th>
-                    <th>Is Active</th>
-                    <th>Is Default</th>
-                    <th>Storage Location</th>
-                  </tr>
-                </thead>
-                <tbody>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Action</th>
+                <th>ID</th>
+                <th>Media Set Name</th>
+                <th>Resolution Width</th>
+                <th>Resolution Height</th>
+                <th>Media Content</th>
+                <th>Date Created</th>
+                <th>Pause Time</th>
+                <th>Is Active</th>
+                <th>Is Default</th>
+                <th>Storage Location</th>
+            </tr>
+        </thead>
+        <tbody>
 
-                  {% for MediaSet in db.get_all_media_sets() %}
-                  <tr>
-                    <td><a href="/medset/{{MediaSet.ID}}/edit">Edit</a> <a href="/medset/{{MediaSet.ID}}/delete">Delete</a></th>
+            {% for MediaSet in db.get_all_media_sets() %}
+            <tr>
+                <td>
+                    <a href="/medset/{{MediaSet.ID}}/edit">Edit</a>
+                    <a href="/medset/{{MediaSet.ID}}/delete">Delete</a>
+                    </th>
                     <td>{{MediaSet.ID}}</td>
                     <td>{{MediaSet.Name}}</td>
                     <td>{{MediaSet.ResW}}</td>
@@ -45,6 +48,9 @@
                     <td>{{MediaSet.IsActive}}</td>
                     <td>{{MediaSet.IsDefault}}</td>
                     <td>{{MediaSet.StorageLocation}}</td>
+<<<<<<< HEAD
+            </tr>
+=======
                 </tr>
     
                   {% endfor %}
@@ -77,76 +83,225 @@
                             </div>
                         </div>
                     </div>
+>>>>>>> 25e35c7d38225bd4740a29b0000a8c3574df2f82
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="output2" class="col-lg-2 control-label">OUTPUT 2 (PSW TV #2)</label>
-                            <div class="col-lg-10">
-                                {{imageset_form.output2(class_="form-control", id_="output2")}}
-                            </div>
-                        </div>
+            {% endfor %}
+
+        </tbody>
+    </table>
+
+
+    <p> {{ selected }}
+    </p>
+
+    <button type="button" class="btn btn-default">Upload Image</button>
+    <br>
+
+    <img src="{{ url_for('static',filename='images/download1.jpg')}}" />
+    <img src="../download2.png" alt="Download 2" style="width:100px;height:100px;" />
+    <img src="../download3.jpg" alt="Download 3" style="width:100px;height:100px;" />
+    <br>
+
+    <p>
+        Tell me, where do you want your inputs to go? I can help with that...
+        <br>
+        <!--<table style="empty-cells:hide; margin-left:auto; margin-right:auto;" border="1" cellpadding="1" cellspacing="1">-->
+        <!--<form method="post">-->
+        <!--<tr>-->
+        <!--<td></td>-->
+        <!--<td>NONE</td>-->
+        <!--<td>IN1</td>-->
+        <!--<td>IN2</td>-->
+        <!--&lt;!&ndash;<td>IN3</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>IN4</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>IN5</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>IN6</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>IN7</td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td>IN8</td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>OUTPUT 1 (PSW TV #1)</td>-->
+        <!--<td><input type="radio" name="output" value="out0-in0" checked="checked"></td>-->
+        <!--<td><input type="radio" name="output" value="out1-in1"></td>-->
+        <!--<td><input type="radio" name="output" value="out1-in2"></td>-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out1" value="out1in3"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out1" value="out1in4"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out1" value="out1in5"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out1" value="out1in6"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out1" value="out1in7"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out1" value="out1in8"></td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>OUTPUT 2 (PSW TV #2)</td>-->
+        <!--<td><input type="radio" name="output" value="out0-in0" checked="checked"></td>-->
+        <!--<td><input type="radio" name="output" value="out2-in1"></td>-->
+        <!--<td><input type="radio" name="output" value="out2-in2"></td>-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out2" value="out2in3"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out2" value="out2in4"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out2" value="out2in5"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out2" value="out2in6"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out2" value="out2in7"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out2" value="out2in8"></td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>OUTPUT 3 (Stogie Geeks TV)</td>-->
+        <!--<td><input type="radio" name="output" value="out0-in0" checked="checked"></td>-->
+        <!--<td><input type="radio" name="output" value="out3-in1"></td>-->
+        <!--<td><input type="radio" name="output" value="out3-in2"></td>-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out3" value="out3in3"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out3" value="out3in4"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out3" value="out3in5"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out3" value="out3in6"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out3" value="out3in7"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out3" value="out3in8"></td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>OUTPUT 4 (News Desk TV)</td>-->
+        <!--<td><input type="radio" name="output" value="out0-in0" checked="checked"></td>-->
+        <!--<td><input type="radio" name="output" value="out4-in1"></td>-->
+        <!--<td><input type="radio" name="output" value="out4-in2"></td>-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out4" value="out4in3"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out4" value="out4in4"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out4" value="out4in5"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out4" value="out4in6"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out4" value="out4in7"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out4" value="out4in8"></td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>OUTPUT 5 (Studio Monitor Monitor)</td>-->
+        <!--<td><input type="radio" name="output" value="out0-in0" checked="checked"></td>-->
+        <!--<td><input type="radio" name="output" value="out5-in1"></td>-->
+        <!--<td><input type="radio" name="output" value="out5-in2"></td>-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out5" value="out5in3"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out5" value="out5in4"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out5" value="out5in5"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out5" value="out5in6"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out5" value="out5in7"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out5" value="out5in8"></td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>OUTPUT 6</td>-->
+        <!--<td><input type="radio" name="output" value="out0-in0" checked="checked"></td>-->
+        <!--<td><input type="radio" name="output" value="out6-in1"></td>-->
+        <!--<td><input type="radio" name="output" value="out6-in2"></td>-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out6" value="out6in3"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out6" value="out6in4"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out6" value="out6in5"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out6" value="out6in6"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out6" value="out6in7"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out6" value="out6in8"></td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>OUTPUT 7</td>-->
+        <!--<td><input type="radio" name="output" value="out0-in0" checked="checked"></td>-->
+        <!--<td><input type="radio" name="output" value="out7-in1"></td>-->
+        <!--<td><input type="radio" name="output" value="out7-in2"></td>-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out7" value="out7in3"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out7" value="out7in4"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out7" value="out7in5"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out7" value="out7in6"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out7" value="out7in7"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out7" value="out7in8"></td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td>OUTPUT 8</td>-->
+        <!--<td><input type="radio" name="output" value="out0-in0" checked="checked"></td>-->
+        <!--<td><input type="radio" name="output" value="out8-in1"></td>-->
+        <!--<td><input type="radio" name="output" value="out8-in2"></td>-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out8" value="out8in3"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out8" value="out8in4"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out8" value="out8in5"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out8" value="out8in6"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out8" value="out8in7"></td>&ndash;&gt;-->
+        <!--&lt;!&ndash;<td><input type="radio" name="out8" value="out8in8"></td>&ndash;&gt;-->
+        <!--</tr>-->
+        <!--<tr>-->
+        <!--<td><input type="submit" value="Submit"></td>-->
+        <!--</tr>-->
+        <!--</form>-->
+        <!--</table>-->
+
+        <form method="post" name="form2" class="form-horizontal ">
+
+
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="output1" class="col-lg-2 control-label">OUTPUT 1 (PSW TV #1)</label>
+                    <div class="col-lg-10">
+                        {{imageset_form.output1(class_="form-control", id_="output1")}}
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="output3" class="col-lg-2 control-label">OUTPUT 3 (Stogie Geeks TV)</label>
-                            <div class="col-lg-10">
-                                {{imageset_form.output3(class_="form-control", id_="output3")}}
-                            </div>
-                        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="output2" class="col-lg-2 control-label">OUTPUT 2 (PSW TV #2)</label>
+                    <div class="col-lg-10">
+                        {{imageset_form.output2(class_="form-control", id_="output2")}}
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="output4" class="col-lg-2 control-label">OUTPUT 4 (News Desk TV)</label>
-                            <div class="col-lg-10">
-                                {{imageset_form.output4(class_="form-control", id_="output4")}}
-                            </div>
-                        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="output3" class="col-lg-2 control-label">OUTPUT 3 (Stogie Geeks TV)</label>
+                    <div class="col-lg-10">
+                        {{imageset_form.output3(class_="form-control", id_="output3")}}
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="output5" class="col-lg-2 control-label">OUTPUT 5 (Studio Monitor Monitor)</label>
-                            <div class="col-lg-10">
-                                {{imageset_form.output5(class_="form-control", id_="output5")}}
-                            </div>
-                        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="output4" class="col-lg-2 control-label">OUTPUT 4 (News Desk TV)</label>
+                    <div class="col-lg-10">
+                        {{imageset_form.output4(class_="form-control", id_="output4")}}
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="output6" class="col-lg-2 control-label">OUTPUT 6</label>
-                            <div class="col-lg-10">
-                                {{imageset_form.output6(class_="form-control", id_="output6")}}
-                            </div>
-                        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="output5" class="col-lg-2 control-label">OUTPUT 5 (Studio Monitor Monitor)</label>
+                    <div class="col-lg-10">
+                        {{imageset_form.output5(class_="form-control", id_="output5")}}
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="output7" class="col-lg-2 control-label">OUTPUT 7</label>
-                            <div class="col-lg-10">
-                                {{imageset_form.output7(class_="form-control", id_="output7")}}
-                            </div>
-                        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="output6" class="col-lg-2 control-label">OUTPUT 6</label>
+                    <div class="col-lg-10">
+                        {{imageset_form.output6(class_="form-control", id_="output6")}}
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="output8" class="col-lg-2 control-label">OUTPUT 8</label>
-                            <div class="col-lg-10">
-                                {{imageset_form.output8(class_="form-control", id_="output8")}} 
-                            </div>
-                        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="output7" class="col-lg-2 control-label">OUTPUT 7</label>
+                    <div class="col-lg-10">
+                        {{imageset_form.output7(class_="form-control", id_="output7")}}
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <div class="col-lg-2"></div>
-                        <div class="col-lg-10">
-                                {{imageset_form.switch(class_="btn btn-default")}}
-                        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="output8" class="col-lg-2 control-label">OUTPUT 8</label>
+                    <div class="col-lg-10">
+                        {{imageset_form.output8(class_="form-control", id_="output8")}}
                     </div>
+                </div>
+            </div>
+
+            <div class="form-group">
+                <div class="col-lg-2"></div>
+                <div class="col-lg-10">
+                    {{imageset_form.switch(class_="btn btn-default")}}
+                </div>
+            </div>
 
 
 
@@ -161,12 +316,12 @@
 
 
 
-                </form>
+        </form>
 
-                Status Message:
-                <pre> {{ hdmichange_status }} </pre>
-            </p>
-        </p>
+        Status Message:
+        <pre> {{ hdmichange_status }} </pre>
+    </p>
+    </p>
 </body>
 
 </html>
