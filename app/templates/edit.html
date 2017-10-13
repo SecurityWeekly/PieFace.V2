@@ -1,105 +1,115 @@
 <html>
-    
-    <head>
-    
-        <title>{{ title }} - Paul Asadoorian</title>
-        <link href="{{ style }}" rel="stylesheet" type="text/css" />
-    </head>
-    
-    <body>
-    
-        <h1>Welcome to Pieface version {{ version }}!</h1>
 
-    
+<head>
 
-            <form method="post" name="form1" class="form-horizontal">
-                <fieldset>
-                    <legend>Legend</legend>
+    <title>{{ title }} - Paul Asadoorian</title>
+    <link href="{{ style }}" rel="stylesheet" type="text/css" />
+</head>
+
+<body>
+
+    <h1>Welcome to Pieface version {{ version }}!</h1>
 
 
-                    <br>
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="imageSetName" class="col-lg-2 control-label"> Name</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="imageSetName" value="{{selectedMediaSet.Name}}">
-                            </div>
-                        </div>
+    <form method="post" name="form1" class="form-horizontal">
+        <fieldset>
+            <legend>Legend</legend>
+
+
+            <br>
+
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="imageSetName" class="col-lg-2 control-label"> Name</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="imageSetName" value="{{selectedMediaSet.Name}}">
                     </div>
+                </div>
+            </div>
 
-                    <br> 
+            <br>
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="imageSetContent" class="col-lg-2 control-label"> Content</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="imageSetContent" value="{{selectedMediaSet.Content}}">
-                            </div>
-                        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="imageSetContent" class="col-lg-2 control-label"> Content</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="imageSetContent" value="{{selectedMediaSet.Content}}">
                     </div>
+                </div>
+            </div>
 
-                    <br> 
+            <br>
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="imageSetWidth" class="col-lg-2 control-label">Resolution Width</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="imageSetWidth" value="{{selectedMediaSet.ResW}}">
-                            </div>
-                        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="imageSetWidth" class="col-lg-2 control-label">Resolution Width</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="imageSetWidth" value="{{selectedMediaSet.ResW}}">
                     </div>
+                </div>
+            </div>
 
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="imageSetHeight" class="col-lg-2 control-label">Resolution Height</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="imageSetHeight" value="{{selectedMediaSet.ResH}}">
-                            </div>
-                        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="imageSetHeight" class="col-lg-2 control-label">Resolution Height</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="imageSetHeight" value="{{selectedMediaSet.ResH}}">
                     </div>
+                </div>
+            </div>
 
-                    <div class="form-group">
-                        <div class="form-group">
-                            <label for="pauseTime" class="col-lg-2 control-label">Pause Time (Seconds)</label>
-                            <div class="col-lg-10">
-                                <input type="text" class="form-control" id="pauseTime" value="{{selectedMediaSet.PauseTime}}">
-                            </div>
-                        </div>
+            <div class="form-group">
+                <div class="form-group">
+                    <label for="pauseTime" class="col-lg-2 control-label">Pause Time (Seconds)</label>
+                    <div class="col-lg-10">
+                        <input type="text" class="form-control" id="pauseTime" value="{{selectedMediaSet.PauseTime}}">
                     </div>
+                </div>
+            </div>
 
 
 
 
 
-                    <div class="form-group">
-                        <label class="col-lg-2 control-label">Default Image</label>
-                        <div class="col-lg-10">
-                            <div class="radio">
-
-                               
-
-                            </div>
-                        </div>
-                    </div>
+            <div class="form-group">
+                <label class="col-lg-2 control-label">Default Image</label>
+                <div class="col-lg-10">
+                    <div class="radio">
 
 
-
-
-                    <div class="form-group">
-                        <label class="col-lg-2 control-label"></label>
-                        <div class="col-lg-10">
-                            <div class="radio">
-                                
-                            </div>
-                        </div>
-                    </div>
-                    <br><br><br><br>
 
                     </div>
-                </fieldset>
-            </form>
-    </body>
-    
-    </html>
+                </div>
+            </div>
+
+
+
+
+            <div class="form-group">
+                <label class="col-lg-2 control-label"></label>
+                <div class="col-lg-10">
+                    <div class="radio">
+
+                    </div>
+                </div>
+            </div>
+            <br>
+            <br>
+            <br>
+            <br>
+
+            <div class="form-group">
+                <div class="col-lg-10 col-lg-offset-2">
+                  <button type="reset" class="btn btn-default">Cancel</button>
+                  <button type="submit" class="btn btn-primary">Submit</button>
+                </div>
+              </div>
+
+            </div>
+        </fieldset>
+    </form>
+</body>
+
+</html>
